@@ -1,0 +1,28 @@
+[
+    {
+      "titulo": "Experiencia Comprobada",
+      "descripcion": "Más de una década asesorando empresas líderes en Argentina y Paraguay.",
+      "icono": "briefcase"
+    },
+    {
+      "titulo": "Cumplimiento Normativo",
+      "descripcion": "Nos alineamos con las normativas más exigentes y estándares internacionales.",
+      "icono": "shield-check"
+    },
+    {
+      "titulo": "Soluciones a Medida",
+      "descripcion": "Diseñamos planes personalizados que responden a las necesidades específicas de su sector.",
+      "icono": "puzzle"
+    },
+    {
+      "titulo": "Equipo Profesional",
+      "descripcion": "Contamos con profesionales altamente capacitados y registrados ante las autoridades competentes.",
+      "icono": "users"
+    },
+    {
+      "titulo": "Innovación y Resultados",
+      "descripcion": "Integramos las últimas tecnologías y prácticas para asegurar la mejora continua.",
+      "icono": "lightbulb"
+    }
+  ]
+  

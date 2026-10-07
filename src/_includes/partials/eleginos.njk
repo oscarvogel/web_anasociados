@@ -1,0 +1,43 @@
+{% set datos = {
+  "titulo": "Conócenos y descubre nuestra experiencia",
+  "descripcion": "Más de una década brindando soluciones personalizadas y cumpliendo normativas internacionales en Argentina y Paraguay. Nuestro equipo profesional está listo para ayudar a tu empresa a alcanzar el éxito.",
+  "boton": "Contáctanos",
+  "imagen": "/assets/images/photo-1551836022-d5d88e9218df.avif",
+  "estadisticas": {
+    "resultados": "15+",
+    "experiencia": "13 años"
+  }
+} %}
+
+<section class="py-16 bg-[#F2F6EC]" data-aos="fade-up">
+  <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center">
+    <!-- Texto a la izquierda -->
+    <div class="w-full lg:w-1/2 lg:pr-8">
+      <h2 class="text-4xl font-bold text-[#2C4A1D] mb-6">{{ datos.titulo }}</h2>
+      <p class="text-gray-700 mb-8">{{ datos.descripcion }}</p>
+      <a href="/contacto/" class="bg-[#3B5D30] text-white px-6 py-3 rounded-lg hover:bg-[#2C4A1D] transition-colors">
+        {{ datos.boton }}
+      </a>
+    </div>
+
+    <!-- Imagen y estadísticas a la derecha -->
+    <div class="w-full lg:w-1/2 mt-8 lg:mt-0">
+      <div class="relative">
+        <img src="{{ datos.imagen }}" alt="Experiencia" class="rounded-lg shadow-lg w-full">
+        <!-- Estadísticas superpuestas -->
+        <div class="absolute bottom-0 left-0 right-0 bg-[#3B5D30] bg-opacity-90 p-6 rounded-b-lg">
+          <div class="flex justify-around text-white">
+            <div class="text-center">
+              <span class="text-3xl font-bold">{{ datos.estadisticas.resultados }}</span>
+              <p class="text-sm">Clientes satisfechos</p>
+            </div>
+            <div class="text-center">
+              <span class="text-3xl font-bold">{{ datos.estadisticas.experiencia }}</span>
+              <p class="text-sm">Experiencia comprobada</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

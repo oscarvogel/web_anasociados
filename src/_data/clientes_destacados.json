@@ -1,0 +1,118 @@
+[
+    {
+      "nombre": "ARAUCO",
+      "logo": "/assets/images/logos/arauco.png",
+      "trabajos": [
+        {
+          "titulo": "Auditoría de seguridad",
+          "descripcion": "Auditorías y asesoramiento en Sistemas de Gestión Ambiental ISO 14001 para plantas generadoras de energía a base de biomasa."
+        },
+        {
+          "titulo": "Capacitación del personal",
+          "descripcion": "Capacitación del personal, actualización de documentación y generación de evidencias normativas. Actualización de Análisis de ciclo de vida."
+        }
+      ]
+    },
+    {
+      "nombre": "Felber Forestal (Paraguay)",
+      "logo": "/assets/images/logos/felber.png",
+      "trabajos": [
+        {
+          "titulo": "Departamento de Seguridad y Salud Ocupacional",
+          "descripcion": "Diseño y creación del Departamento de Seguridad y Salud Ocupacional."
+        },
+        {
+          "titulo": "Formación de profesionales locales",
+          "descripcion": "Formación de profesionales locales para la gestión continua."
+        }
+      ]
+    },
+    {
+      "nombre": "La Segunda ART",
+      "logo": "/assets/images/logos/la_segunda.png",
+      "trabajos": [
+        {
+          "titulo": "Supervisión técnica",
+          "descripcion": "Supervisión técnica en establecimientos asegurados, análisis de accidentes y asesoramiento en seguridad y salud."
+        }
+      ]
+    },
+    {
+      "nombre": "Conectar Verde S.A.",
+      "logo": "/assets/images/logos/cv.png",
+      "trabajos": [
+        {
+          "titulo": "Implementación de políticas corporativas",
+          "descripcion": "Implementación de políticas corporativas de MASSO y herramientas preventivas adaptadas a estándares internacionales de manejo forestal."
+        }
+      ]
+    },
+    {
+      "nombre": "DeMisiones S.R.L.",
+      "logo": "/assets/images/logos/de_misiones.png",
+      "trabajos": [
+        {
+          "titulo": "Desarrollo de módulos de formación",
+          "descripcion": "Desarrollo de módulos de formación para autotransporte de cargas generales y generación de documentos de gestión, sentando bases para certificaciones como ISO 39001"
+        }
+      ]
+    },
+    {
+      "nombre": "Securitas Argentina",
+      "logo": "/assets/images/logos/securitas.png",
+      "trabajos": [
+        {
+          "titulo": "Diseño de planes de seguridad",
+          "descripcion": "Diseño de planes de seguridad específicos para servicios de protección patrimonial en empresas como Farmacity, Papel Misionero y Techint, entre otros."
+        }
+      ]
+    },
+    {
+      "nombre": "Forestal Garuhape SA",
+      "logo": "/assets/images/logos/fg.png",
+      "trabajos": [
+        {
+          "titulo": "Implementación de sistemas de gestión",
+          "descripcion": "Implementación de sistemas de gestión integrados y coordinación bajo estándares internacionales como FSC y PEFC."
+        }
+      ]
+    },
+    {
+      "nombre": "Don Federico – Hartwig Nelson",
+      "logo": "",
+      "trabajos": [
+        {
+          "titulo": "Asesoramiento en cosecha mecanizada",
+          "descripcion": "Asesoramiento en cosecha mecanizada (Cut to Length) y estándares de manejo forestal sostenible."
+        }
+      ]
+    },
+    {
+      "nombre": "Transportistas Varios (Holc Pedro Pablo, Muller Antonio, Rogelio Ortiz)",
+      "logo": "",
+      "trabajos": [
+        {
+          "titulo": "Asesoramiento integral",
+          "descripcion": "Asesoramiento integral en transporte forestal y cumplimiento de requisitos normativos."
+        }
+      ]
+    },
+    {
+      "nombre": "Otros",
+      "logo": "",
+      "trabajos": [
+        {
+          "titulo": "Giudice Hnos. SRL",
+          "descripcion": "Análisis de trabajo seguro en perforaciones de pozos profundos"
+        },
+        {
+          "titulo": "Ceragon Argentina S.A. – Telecomunicaciones",
+          "descripcion": "Planificación de trabajo seguro para montajes en torres de gran altura."
+        },
+        {
+          "titulo": "Valen S.A., Ernesto Vargas, Decio Forestal S.R.L., Forestal don Florencio",
+          "descripcion": "Asesoramiento integral en MASSO para actividades forestales (Vivero de Eucaliptos clonales, cosecha, poda, intervenciones cilviculturales, entre otras), ganaderas, elaboración de postes semi mecanizados"
+        }
+      ]
+    }
+  ]

@@ -1,0 +1,30 @@
+{
+    "titulo": "Política de Privacidad",
+    "fecha": "29 de Enero 2025",
+    "secciones": [
+      {
+        "titulo": "1. Recopilación de Información",
+        "lista": [
+          "Registro en nuestro sitio web",
+          "Formularios de contacto",
+          "Uso de cookies y tecnologías similares"
+        ]
+      },
+      {
+        "titulo": "2. Uso de la Información",
+        "lista": [
+          "Proveer y mejorar nuestros servicios",
+          "Comunicarnos con usuarios",
+          "Cumplir con obligaciones legales"
+        ]
+      },
+      {
+        "titulo": "3. Protección de Datos",
+        "lista": [
+          "Encriptación de datos",
+          "Accesos restringidos",
+          "Revisiones periódicas de seguridad"
+        ]
+      }
+    ]
+  }

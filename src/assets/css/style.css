@@ -1,0 +1,45 @@
+/* Estilos adicionales para la sección Clientes Destacados */
+
+/* Oculta scrollbar en contenedores horizontales (no evitar accesibilidad en navegadores que requieren scrollbars) */
+.no-scrollbar {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+.clients-carousel { position: relative; }
+.clients-track { scroll-behavior: smooth; }
+
+.clients-carousel .left-gradient,
+.clients-carousel .right-gradient {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 4rem;
+	pointer-events: none;
+}
+.clients-carousel .left-gradient { left: 0; background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); }
+.clients-carousel .right-gradient { right: 0; background: linear-gradient(-90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); }
+
+/* Botones de navegación */
+.clients-prev, .clients-next { box-shadow: 0 2px 6px rgba(13,26,19,0.06); }
+
+/* Reduce movimiento for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.clients-track { scroll-behavior: auto; }
+	.group, .clients-prev, .clients-next { transition: none !important; }
+}
+
+/* Pequeñas mejoras visuales para las tarjetas */
+.rounded-2xl { border-radius: 1rem; }
+.shadow-sm { box-shadow: 0 6px 18px rgba(15,23,42,0.04); }
+.shadow-xl { box-shadow: 0 20px 40px rgba(15,23,42,0.08); }
+
+/* Logo sizing helpers */
+.client-logo-wrap { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+.client-logo { display: block; max-width: 88%; max-height: 88%; width: auto; height: auto; object-fit: contain; }
+.client-logo-circle { max-width: 72%; max-height: 72%; }
+
+/* Ensure images don't stretch inside constrained flex items */
+.clients-track img, .client-logo { height: auto; }
+

@@ -1,0 +1,32 @@
+[
+    {
+      "nombre": "Juan Pérez",
+      "cargo": "Especialista en Seguridad",
+      "imagen": "/assets/images/equipo/juan-perez.png",
+      "descripcion": "Juan es un especialista en seguridad con más de 10 años de experiencia en el rubro. Ha trabajado en empresas de primer nivel y es un referente en la materia.",
+      "redes": [
+        {"red": "facebook", "url": "https://facebook.com/juanperez"},
+        {"red": "linkedin", "url": "https://linkedin.com/in/juanperez"}
+      ]
+    },
+    {
+      "nombre": "María Gomez",
+      "cargo": "Consultora Ambiental",
+      "imagen": "/assets/images/equipo/maria-gomez.png",
+      "descripcion": "María es una consultora ambiental con más de 15 años de experiencia en el rubro. Ha trabajado en proyectos de gran envergadura y es reconocida por su compromiso con el medio ambiente.",
+      "redes": [
+        {"red": "instagram", "url": "https://instagram.com/mariagarcia"},
+        {"red": "web", "url": "https://nuestraweb.com/maria"}
+      ]
+    },
+    {
+      "nombre": "Carlos Rojas",
+      "cargo": "Auditor de Sistemas",
+      "imagen": "/assets/images/equipo/carlos-rojas.png",
+      "descripcion": "Carlos es un auditor de sistemas con más de 5 años de experiencia en el rubro. Ha trabajado en empresas de tecnología y es un experto en seguridad informática.",
+      "redes": [
+        {"red": "whatsapp", "url": "https://wa.me/54912345678"},
+        {"red": "linkedin", "url": "https://linkedin.com/in/carlosrodriguez"}
+      ]
+    }
+  ]

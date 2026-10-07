@@ -1,0 +1,16 @@
+{
+    "tituloProyectos": "Proyectos Destacados",
+    "subtituloProyectos": "Consultoría en higiene y seguridad para empresas de diversos sectores.",
+    "proyectos": [
+      {
+        "imagen": "/assets/images/proyectos/asesoria_especializada.png",
+        "titulo": "Asesoría especializada",
+        "subtitulo": "Cumplimiento normativo y excelencia operativa garantizados siempre."
+      },
+      {
+        "imagen": "/assets/images/proyectos/experiencia.png",
+        "titulo": "Experiencia comprobada",
+        "subtitulo": "Más de 13 años en sectores forestal e industrial."
+      }
+    ]
+  }

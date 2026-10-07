@@ -1,0 +1,37 @@
+---
+title: Servicios de Consultoría
+layout: layouts/base.njk
+tags: equipo
+---
+
+{# <div class="w-full h-screen bg-gray-100 dark:bg-gray-800">
+    <div class="w-full h-full py-20 flex flex-wrap justify-center items-center gap-2">
+        {%for eq in equipo%}
+        <div
+            class="w-[20rem] mx-auto flex flex-col gap-2 px-4 border border-gray-300 border-gray-300 rounded-lg bg-white dark:bg-gray-900">
+            <div class="w-full flex justify-center items-center">
+                <img class="w-[8rem] h-[8rem] rounded-full outline outline-offset-2 outline-1 outline-blue-400 shadow-lg relative -top-[4rem]" src="{{eq.imagen}}" alt="Profile Image" />
+            </div>
+
+            <div class="w-full h-full text-center flex flex-col gap-4 relative -top-10" ata-aos="fade-up">
+                <h1 class="uppercase text-lg font-semibold dark:text-white">
+                    {{eq.cargo}}
+                </h1>
+
+                <h2 class="text-xl font-serif capitalize font-semibold text-gray-700 dark:text-gray-300">
+                    {{ eq.nombre }}
+                </h2>
+
+                <p class="text-gray-700 dark:text-gray-300">
+                   {{eq.descripcion}}
+                </p>
+
+                <button class="w-[60%] mx-auto bg-blue-500 text-white rounded-3xl px-4 py-2">Seguir</button>
+            </div>
+
+        </div>
+        {%endfor%}
+    </div>
+</div> #}
+
+{%include "partials/footer.njk" %}

@@ -1,0 +1,61 @@
+<header class="bg-[#3B5D30]/10 shadow-sm shadow-[#2C4A1D]/20">
+  <div class="text-center py-4 bg-[#2C4A1D] text-white">
+    <p class="text-lg italic">Liderando el camino hacia un futuro más seguro, sostenible y reciliente</p>
+  </div>
+  <div class="container mx-auto px-4 py-6">
+    <nav class="flex items-center justify-between">
+      <div class="text-xl font-bold text-[#2C4A1D]">
+        <a href="/">
+          <img src="/assets/images/logo_almada_neri.png" alt="AN Asociados Logo" class="h-8 inline-block">
+        </a>
+      </div>
+      
+      <!-- Menú Desktop -->
+      <ul class="hidden md:flex space-x-6">
+        {% for item in navigation %}
+        <li>
+          <a href="{{ item.url }}" class="text-[#556B2F] hover:text-[#3B5D30] transition-colors">
+            {{ item.title }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      
+      <!-- Botón Mobile -->
+      <button id="mobile-menu-button" 
+              class="md:hidden text-[#556B2F] hover:text-[#3B5D30]"
+              onclick="toggleMobileMenu()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+        </svg>
+      </button>
+    </nav>
+    
+    <!-- Menú Mobile -->
+    <div id="mobile-menu" 
+         class="md:hidden hidden bg-[#3B5D30]/10 border-t border-[#2C4A1D]/20">
+      <div class="container mx-auto px-6 py-4">
+        {% for item in navigation %}
+        <a href="{{ item.url }}" class="block py-2 text-[#556B2F] hover:text-[#3B5D30]">{{ item.title }}</a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <script>
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('hidden');
+      }
+
+      // Cierra el menú móvil al hacer clic en cualquier lugar
+      document.addEventListener('click', function(event) {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+          mobileMenu.classList.add('hidden');
+        }
+      });
+    </script>
+  </div>
+</header>

@@ -1,0 +1,24 @@
+<section class="py-12 bg-[#FBFBFB]" data-aos="fade-up">
+  <div class="container mx-auto px-4 md:px-20 lg:px-40 xl:px-60">
+    <h2 class="text-2xl font-semibold text-center mb-6">Artículos recientes</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {% for post in recent_articles %}
+      <article class="bg-white rounded shadow-sm overflow-hidden">
+        <a href="{{ post.url }}" class="block">
+          <img src="{{ post.image }}" alt="{{ post.title }}" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold">{{ post.title }}</h3>
+            <p class="text-gray-600 text-sm mt-2">{{ post.excerpt }}</p>
+            <p class="text-gray-400 text-xs mt-3">{{ post.date }}</p>
+          </div>
+        </a>
+      </article>
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-6">
+      <a href="/blog/" class="text-primary-600 hover:underline">Ver todos los artículos →</a>
+    </div>
+  </div>
+</section>

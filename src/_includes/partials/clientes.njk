@@ -1,0 +1,65 @@
+<section class="py-16 bg-[#F2F6EC]" data-aos="fade-up" id="clientes">
+    <div class="container mx-auto px-6">
+        <div class="mb-8 text-center">
+            <h2 class="text-4xl font-bold text-[#2C4A1D] mb-4">Nuestros Clientes</h2>
+            <p class="pt-6 pb-8 text-base max-w-2xl text-center mx-auto">
+                {{ clientes.descripcion }}
+            </p>
+        </div>
+
+        <!-- Slider ajustado con menos espacio -->
+        <div class="swiper-container relative">
+            <div class="swiper-wrapper py-8">
+                {% for cliente in clientes.clientes %}
+                <div class="swiper-slide flex items-center justify-center">
+                    <a href="{{ cliente.enlace }}" target="_blank" class="group block" rel="noopener noreferrer">
+                        <img 
+                            src="{{ cliente.logo }}" 
+                            alt="{{ cliente.alt }}"
+                            class="max-h-20 w-auto mx-auto filter grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100">
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Navigation buttons -->
+            <div class="swiper-button-next text-[#2C4A1D]"></div>
+            <div class="swiper-button-prev text-[#2C4A1D]"></div>
+            
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const swiper = new Swiper('.swiper-container', {
+                loop: true,
+                slidesPerView: 3,  // Más slides visibles
+                spaceBetween: 15,  // Espacio reducido
+                centeredSlides: false,
+                autoplay: {
+                    delay: 3000,
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 4,
+                        spaceBetween: 15
+                    },
+                    1024: {
+                        slidesPerView: 5,
+                        spaceBetween: 15
+                    },
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        });
+    </script>
+</section>
