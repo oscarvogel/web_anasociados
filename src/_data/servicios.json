@@ -1,33 +1,52 @@
 [
-    {
-      "titulo": "Higiene, Seguridad y Medio Ambiente",
-      "descripcion": "Diseño e implementación de programas personalizados para minimizar riesgos laborales",
-      "icono": "shield-check",
-      "imagen": "/assets/images/higiene-seguridad-medio-ambiente.webp"
-    },
-    {
-      "titulo": "Sistemas de Gestión Integrados y Gestión Forestal Sostenible",
-      "descripcion": "Auditorías y asesoramiento para la certificación en normas ",
-      "icono": "layers",
-      "imagen": "/assets/images/sistemas-gestion-integrados-gestion-forestal-sostenible.webp"
-    },
-    {
-        "titulo":"Manejo y Prevención de Incendios",
-        "descripcion":"Diseño de planes de prevención y control de incendios",
-        "icono":"fire",
-        "imagen": "/assets/images/manejo-prevencion-incendios.webp"
-    },
-    {
-        "titulo":"Instructor de Manejo en Autotransporte de Carga Forestal",
-        "descripcion":"Cursos teórico-prácticos para mejorar la seguridad",
-        "icono":"graduation-cap",
-        "imagen": "/assets/images/instructor-manejo-autotransporte-carga-forestal.webp"
-    },
-    {
-        "titulo":"Certificación de Competencias Laborales",
-        "descripcion":"Evaluación y certificación de competencias laborales",
-        "icono":"certificate",
-        "imagen": "/assets/images/certificacion-competencias-laborales.webp"
-    }
-  ]
-  
+  {
+    "titulo": "Higiene, Seguridad y Medio Ambiente",
+    "descripcion": "Diseño e implementación de programas personalizados para minimizar riesgos laborales",
+    "icono": "shield-check",
+    "imagen": "/assets/images/higiene-seguridad-medio-ambiente.webp",
+    "slug": "higiene-seguridad-medio-ambiente",
+    "foto": "",
+    "arte": "casco",
+    "necesidad": "Higiene, seguridad y ambiente"
+  },
+  {
+    "titulo": "Sistemas de Gestión Integrados y Gestión Forestal Sostenible",
+    "descripcion": "Auditorías y asesoramiento para la certificación en normas",
+    "icono": "layers",
+    "imagen": "/assets/images/sistemas-gestion-integrados-gestion-forestal-sostenible.webp",
+    "slug": "sistemas-gestion-gestion-forestal",
+    "foto": "",
+    "arte": "chaleco",
+    "necesidad": "Sistemas de gestión"
+  },
+  {
+    "titulo": "Manejo y Prevención de Incendios",
+    "descripcion": "Diseño de planes de prevención y control de incendios",
+    "icono": "fire",
+    "imagen": "/assets/images/manejo-prevencion-incendios.webp",
+    "slug": "manejo-prevencion-incendios",
+    "foto": "",
+    "arte": "matafuego",
+    "necesidad": "Prevención de incendios"
+  },
+  {
+    "titulo": "Instructor de Manejo en Autotransporte de Carga Forestal",
+    "descripcion": "Cursos teórico-prácticos para mejorar la seguridad",
+    "icono": "graduation-cap",
+    "imagen": "/assets/images/instructor-manejo-autotransporte-carga-forestal.webp",
+    "slug": "instructor-autotransporte-carga-forestal",
+    "foto": "",
+    "arte": "guantes",
+    "necesidad": "Capacitación forestal"
+  },
+  {
+    "titulo": "Certificación de Competencias Laborales",
+    "descripcion": "Evaluación y certificación de competencias laborales",
+    "icono": "certificate",
+    "imagen": "/assets/images/certificacion-competencias-laborales.webp",
+    "slug": "certificacion-competencias-laborales",
+    "foto": "",
+    "arte": "anteojos",
+    "necesidad": "Certificación de competencias"
+  }
+]
