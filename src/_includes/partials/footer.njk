@@ -1,21 +1,37 @@
-<footer class="bg-[#2C4A1D] text-[#D4E7D3] mt-12" data-aos="fade-up">
-  <div class="container mx-auto px-4 py-8">
-    <div class="grid md:grid-cols-3 gap-8">
-      <div>
-        <h3 class="text-xl font-bold mb-4 text-white">Contacto</h3>
-        <p class="mb-2">Llamar: <a href="tel:+5493757677124" class="hover:text-white transition-colors">+54 9 3757 67-7124</a></p>
-        <p>Email: <a href="mailto:almada_neri@hotmail.com">almada_neri@hotmail.com</a</p>
+<footer class="on-dark bg-verde pt-20 md:pt-28">
+  <div class="mx-auto max-w-[120rem] px-4 md:px-8">
+    <p class="max-w-[22ch] text-[clamp(1.9rem,3.8vw,3.5rem)] font-semibold leading-[1.06] tracking-[-0.03em] text-marfil">
+      Liderando el camino<br><span class="text-apagado">hacia un futuro más seguro, sostenible y resiliente.</span>
+    </p>
+
+    <div class="mt-16 grid gap-10 border-t border-marfil/15 pt-10 md:grid-cols-12">
+      <div class="md:col-span-4">
+        <a href="/" class="inline-flex items-center gap-3" aria-label="AN Asociados, inicio">
+          <img src="/assets/images/logo_almada_neri.png" alt="" class="h-9 w-auto">
+          <span class="font-display text-sm font-bold uppercase tracking-[0.14em] text-marfil">AN Asociados</span>
+        </a>
+        <p class="mt-4 max-w-[34ch] text-[0.875rem] leading-relaxed text-salvia-clara">Higiene, seguridad, medio ambiente y gestión forestal sostenible en Argentina y Paraguay.</p>
       </div>
-      <div>
-        <h3 class="text-xl font-bold mb-4 text-white">Enlaces rápidos</h3>
-        <ul class="space-y-2">
-          <li><a href="/politicas/" class="hover:text-white transition-colors">Políticas de privacidad</a></li>
-          <li><a href="#" class="hover:text-white transition-colors">Términos de servicio</a></li>
+      <nav class="md:col-span-3 md:col-start-6" aria-label="Secciones">
+        <p class="mono text-marfil/55">Secciones</p>
+        <ul class="mt-4 grid gap-2 text-[0.9375rem]">
+          {% for item in navigation %}<li><a href="{{ item.url }}" class="pie-enlace">{{ item.title }}</a></li>{% endfor %}
+          <li><a href="/servicios/" class="pie-enlace">Detalle de servicios</a></li>
+        </ul>
+      </nav>
+      <div class="md:col-span-3">
+        <p class="mono text-marfil/55">Contacto</p>
+        <ul class="mt-4 grid gap-2 text-[0.9375rem]">
+          {% for d in contacto.datos %}{% if d.enlace %}<li><a href="{{ d.enlace }}" class="pie-enlace">{{ d.texto }}</a></li>{% endif %}{% endfor %}
+          <li><a href="{{ contacto.whatsapp }}" target="_blank" rel="noopener" class="pie-enlace">WhatsApp</a></li>
+          <li><a href="{{ hero.portal.url }}" target="_blank" rel="noopener" class="pie-enlace">{{ hero.portal.texto }}</a></li>
         </ul>
       </div>
     </div>
-    <div class="border-t border-[#3B5D30] mt-8 pt-4 text-center">
-      <p>&copy; 2025 Servin LGSM. Todos los derechos reservados.</p>
+
+    <div class="mt-14 flex flex-wrap items-center justify-between gap-4 border-t border-marfil/15 py-6 text-[0.8125rem] text-salvia-clara">
+      <p>&copy; 2026 AN Asociados. Todos los derechos reservados. <a href="/politicas/" class="pie-enlace ml-3">Política de privacidad</a></p>
+      <a href="#contenido" class="mono pie-enlace">Volver arriba ↑</a>
     </div>
   </div>
 </footer>
