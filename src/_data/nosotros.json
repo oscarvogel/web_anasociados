@@ -1,0 +1,13 @@
+{
+  "etiqueta": "( 04 ) Nosotros",
+  "titulo": "Conócenos y descubre",
+  "tituloApagado": "nuestra experiencia.",
+  "descripcion": "Más de una década brindando soluciones personalizadas y cumpliendo normativas internacionales en Argentina y Paraguay. Nuestro equipo profesional está listo para ayudar a tu empresa a alcanzar el éxito.",
+  "boton": { "texto": "Contáctanos", "url": "/contacto/" },
+  "cifras": [
+    { "valor": 13, "sufijo": "", "descripcion": "años de experiencia comprobada" },
+    { "valor": 15, "sufijo": "+", "descripcion": "clientes satisfechos" },
+    { "valor": 2, "sufijo": "", "descripcion": "países: Argentina y Paraguay" },
+    { "valor": 5, "sufijo": "", "descripcion": "líneas de servicio" }
+  ]
+}
