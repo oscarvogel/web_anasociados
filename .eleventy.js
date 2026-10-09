@@ -1,7 +1,17 @@
 // .eleventy.js
-const path = require('path');
+const { execSync } = require('child_process');
 
 module.exports = function(eleventyConfig) {
+  // Compila Tailwind antes de cada build para que el passthrough copie app.css
+  eleventyConfig.on("eleventy.before", () => {
+    const leer = (f) => JSON.parse(require("fs").readFileSync(`src/_data/${f}.json`, "utf8"));
+    const { necesidades } = leer("contacto");
+    leer("servicios").forEach((s) => {
+      if (!necesidades.includes(s.necesidad)) throw new Error(`servicios.json: "${s.necesidad}" no está en contacto.json > necesidades`);
+    });
+    execSync("npx @tailwindcss/cli -i src/assets/css/main.css -o src/assets/css/app.css --minify", { stdio: "inherit" });
+  });
+
   // Copia archivos estáticos
   eleventyConfig.addPassthroughCopy("src/assets");
   

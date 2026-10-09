@@ -1,0 +1,7 @@
+@font-face { font-family: "DM Mono"; font-style: normal; font-weight: 300; font-display: swap; src: url("/assets/fonts/DMMono-300.woff2") format("woff2"); }
+@font-face { font-family: "DM Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("/assets/fonts/DMMono-400.woff2") format("woff2"); }
+@font-face { font-family: "DM Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("/assets/fonts/DMMono-500.woff2") format("woff2"); }
+@font-face { font-family: "General Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("/assets/fonts/GeneralSans-400.woff2") format("woff2"); }
+@font-face { font-family: "General Sans"; font-style: normal; font-weight: 500; font-display: swap; src: url("/assets/fonts/GeneralSans-500.woff2") format("woff2"); }
+@font-face { font-family: "General Sans"; font-style: normal; font-weight: 600; font-display: swap; src: url("/assets/fonts/GeneralSans-600.woff2") format("woff2"); }
+@font-face { font-family: "Syne"; font-style: normal; font-weight: 500 800; font-display: swap; src: url("/assets/fonts/Syne-variable.woff2") format("woff2"); }
