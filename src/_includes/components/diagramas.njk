@@ -1,0 +1,39 @@
+{# Dibujos técnicos propios (geometría pura). pathLength="1" permite que GSAP los "dibuje" con stroke-dashoffset. #}
+{% from "components/sign.njk" import sign %}
+
+{% macro plano() %}
+<svg class="dibuja" viewBox="0 0 320 170" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Plano de terreno con curvas de nivel, cota y corte A–A">
+  <path pathLength="1" stroke-opacity=".35" d="M8 8H312V162H8Z"/>
+  <path pathLength="1" d="M200 36C246 34 276 62 270 92C264 124 228 138 194 134C156 130 130 106 136 76C142 50 168 38 200 36Z"/>
+  <path pathLength="1" d="M200 52C234 50 256 70 252 92C248 114 222 124 196 120C170 116 152 100 156 80C160 62 178 54 200 52Z"/>
+  <path pathLength="1" d="M200 68C220 67 234 78 232 92C230 104 214 110 198 108C182 106 172 98 175 86C178 75 188 69 200 68Z"/>
+  <path pathLength="1" d="M200 82C210 82 216 88 214 94C212 100 204 102 197 100C190 98 188 92 191 87C193 83 196 82 200 82Z"/>
+  <path pathLength="1" stroke="var(--color-tierra)" d="M104 92H296M104 86V98M296 86V98"/>
+  <path pathLength="1" d="M136 150H270M136 144V156M270 144V156M142 150l6-3M142 150l6 3M264 150l-6-3M264 150l-6 3"/>
+  <path pathLength="1" d="M40 58V28M40 28l-5 10M40 28l5 10"/>
+  <path pathLength="1" d="M20 20h6M23 17v6M294 142h6M297 139v6"/>
+  <g font-family="DM Mono, monospace" font-size="9" fill="currentColor" stroke="none"><text x="36" y="22">N</text><text x="92" y="90">A</text><text x="299" y="90">A′</text></g>
+</svg>
+{% endmacro %}
+
+{% macro senalChecklist() %}
+<svg class="dibuja" viewBox="0 0 320 170" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Señal de obligación de casco y planilla de inspección con tres ítems verificados">
+  <path pathLength="1" stroke-opacity=".35" d="M8 8H312V162H8Z"/>
+  {{ sign("obligacion", "casco", 72, 28, 49) }}
+  <path pathLength="1" d="M128 36h16v16h-16Z"/><path pathLength="1" stroke="var(--color-tierra)" stroke-width="2" d="m131 44 4 4 7-8"/><path pathLength="1" d="M158 40H296M158 49H250"/>
+  <path pathLength="1" d="M128 77h16v16h-16Z"/><path pathLength="1" stroke="var(--color-tierra)" stroke-width="2" d="m131 85 4 4 7-8"/><path pathLength="1" d="M158 81H296M158 90H262"/>
+  <path pathLength="1" d="M128 118h16v16h-16Z"/><path pathLength="1" stroke="var(--color-tierra)" stroke-width="2" d="m131 126 4 4 7-8"/><path pathLength="1" d="M158 122H296M158 131H236"/>
+</svg>
+{% endmacro %}
+
+{% macro parcelas() %}
+<svg class="dibuja" viewBox="0 0 320 170" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Plano de parcelas con una resaltada y su radio de intervención">
+  <path pathLength="1" stroke-opacity=".35" d="M8 8H312V162H8Z"/>
+  <path pathLength="1" d="M24 32H296V146H24Z"/>
+  <path pathLength="1" d="M115 32V146M206 32V146M24 89H296"/>
+  <path pathLength="1" stroke="var(--color-tierra)" stroke-width="2" d="M206 89H296V146H206Z"/>
+  <circle pathLength="1" cx="251" cy="117" r="22" stroke="var(--color-tierra)"/>
+  <path pathLength="1" stroke="var(--color-tierra)" d="M251 108V126M242 117H260"/>
+  <path pathLength="1" d="M24 20H296M24 15V25M296 15V25"/>
+</svg>
+{% endmacro %}

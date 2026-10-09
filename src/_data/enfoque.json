@@ -1,0 +1,38 @@
+{
+  "etiqueta": "( 01 ) Enfoque",
+  "fraseApagada": "Más de una década cumpliendo normativas internacionales en Argentina y Paraguay.",
+  "paneles": [
+    {
+      "indice": "01 / Experiencia",
+      "etiqueta": "Plano",
+      "diagrama": "plano",
+      "titulo": "Experiencia comprobada",
+      "texto": "Más de una década asesorando empresas líderes en Argentina y Paraguay.",
+      "valor": 13,
+      "unidad": "años",
+      "descripcion": "de experiencia comprobada"
+    },
+    {
+      "indice": "02 / Normativa",
+      "etiqueta": "Inspección",
+      "diagrama": "senalChecklist",
+      "titulo": "Cumplimiento normativo",
+      "texto": "Nos alineamos con las normativas más exigentes y estándares internacionales.",
+      "valor": 2,
+      "unidad": "países",
+      "descripcion": "Argentina y Paraguay"
+    },
+    {
+      "indice": "03 / A medida",
+      "etiqueta": "Parcelas",
+      "diagrama": "parcelas",
+      "titulo": "Soluciones a medida",
+      "texto": "Diseñamos planes personalizados que responden a las necesidades específicas de su sector.",
+      "valor": 15,
+      "unidad": "+",
+      "descripcion": "clientes satisfechos"
+    }
+  ],
+  "fraseA": "Acompañamos a tu empresa hacia un",
+  "fraseB": "futuro más seguro y sostenible, con soluciones personalizadas."
+}
