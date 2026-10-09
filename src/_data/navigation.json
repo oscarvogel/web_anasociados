@@ -1,9 +1,6 @@
-[ 
-  {"title": "Inicio", "url": "/"},     
-  {"title": "Servicios", "url": "/servicios/"},
-  {"title": "Clientes", "url": "/clientes_destacados/"},
-  {"title": "Nosotros", "url": "/equipo/"},
-  {"title": "Proyectos", "url": "/proyectos/"},
-  {"title": "Contacto", "url": "/contacto/"},
-  {"title": "Portal", "url": "https://bit.ly/an-asociados"}
+[
+  { "title": "Enfoque", "url": "/#enfoque" },
+  { "title": "Servicios", "url": "/#servicios" },
+  { "title": "Clientes", "url": "/#clientes" },
+  { "title": "Nosotros", "url": "/#nosotros" }
 ]
