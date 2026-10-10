@@ -1,3 +1,4 @@
+{% from "components/foto.njk" import foto %}
 <section id="articulos" class="bg-marfil py-24 md:py-36" aria-labelledby="articulos-titulo">
   <div class="mx-auto max-w-[120rem] px-4 md:px-8">
     <p class="etiqueta">( 05 ) Artículos</p>
@@ -13,6 +14,7 @@
         {% else %}
         <div class="fila fila-pendiente">
         {% endif %}
+          <span class="fila-foto">{{ foto(post.foto, "", [600, 1000], "(min-width: 1024px) 9rem, 60vw", "h-full w-full object-cover") }}</span>
           <span class="mono fila-fecha">{{ post.date | formatDate }}</span>
           <span class="fila-titulo">{{ post.title }}</span>
           <span class="fila-extracto">{{ post.excerpt }}</span>

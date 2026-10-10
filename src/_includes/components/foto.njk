@@ -1,0 +1,8 @@
+{# Foto optimizada en <picture> AVIF/WebP. base = ruta sin ancho ni extensión; anchos = tamaños generados (ver docs/imagenes-pendientes.md). alt vacío = decorativa. #}
+{% macro foto(base, alt, anchos, sizes, clases, eager) %}
+<picture>
+  <source type="image/avif" srcset="{% for w in anchos %}{{ base }}-{{ w }}.avif {{ w }}w{% if not loop.last %}, {% endif %}{% endfor %}" sizes="{{ sizes }}">
+  <source type="image/webp" srcset="{% for w in anchos %}{{ base }}-{{ w }}.webp {{ w }}w{% if not loop.last %}, {% endif %}{% endfor %}" sizes="{{ sizes }}">
+  <img src="{{ base }}-{{ anchos | last }}.webp" alt="{{ alt }}" class="{{ clases }}" loading="{{ 'eager' if eager else 'lazy' }}" decoding="async">
+</picture>
+{% endmacro %}

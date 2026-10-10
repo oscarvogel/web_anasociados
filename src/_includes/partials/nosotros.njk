@@ -1,6 +1,7 @@
+{% from "components/foto.njk" import foto %}
 {% set flecha %}<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m9 6 6 6-6 6"/></svg>{% endset %}
 <section id="nosotros" class="nosotros on-dark bg-verde pt-24 md:pt-36" aria-labelledby="nosotros-titulo">
-  <div class="nosotros-foto" data-parallax aria-hidden="true"></div>
+  <div class="nosotros-foto" data-parallax aria-hidden="true">{{ foto(nosotros.foto, "", [960, 1440, 1916], "100vw", "h-full w-full object-cover") }}</div>
   <div class="nosotros-velo" aria-hidden="true"></div>
 
   <div class="mx-auto max-w-[120rem] px-4 md:px-8">

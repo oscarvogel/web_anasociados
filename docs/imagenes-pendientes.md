@@ -1,4 +1,6 @@
-# Imágenes pendientes y cómo reemplazarlas
+# Imágenes: estado y cómo reemplazarlas
+
+**Estado (2026-10-09):** las 9 fotos pedidas están integradas (5 de servicios, `nosotros-banda` y 3 de artículos). Los originales PNG están en `design-source/originales/` (fuera de git: conviene respaldarlos). Pendiente: una foto real para el hero. La tabla y los prompts de abajo quedan como referencia para reemplazos futuros.
 
 Hoy el sitio usa una sola foto real: el fondo del hero. Todo lo demás muestra ilustraciones de equipos de seguridad (`src/_includes/components/epp.njk`) como arte provisorio. Esta guía lista las fotos a producir, con nombre, medida y un prompt sugerido para generarlas con el mismo estilo que la foto del hero.
 

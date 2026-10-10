@@ -1,4 +1,5 @@
-{% from "components/diagramas.njk" import plano, senalChecklist, parcelas %}
+{% from "components/diagramas.njk" import capaPlano, capaChecklist, capaParcela %}
+{% from "components/foto.njk" import foto %}
 <section id="enfoque" data-cortina class="bg-marfil py-24 md:py-36" aria-labelledby="enfoque-frase">
   <div class="mx-auto max-w-[120rem] px-4 md:px-8">
     <p class="etiqueta">{{ enfoque.etiqueta }}</p>
@@ -12,15 +13,31 @@
       {% for p in enfoque.paneles %}
       <article class="panel" data-reveal>
         <header class="panel-cab mono"><span>{{ p.indice }}</span><span>[ {{ p.etiqueta }} ]</span></header>
-        <div class="panel-diagrama text-verde">
-          {% if p.diagrama == "plano" %}{{ plano() }}{% elif p.diagrama == "senalChecklist" %}{{ senalChecklist() }}{% else %}{{ parcelas() }}{% endif %}
+
+        <div class="panel-media">
+          <div class="panel-foto">{{ foto(p.foto, p.fotoAlt, [600, 1000, 1672], "(min-width: 768px) 33vw, 100vw", "h-full w-full object-cover " + p.posicion) }}</div>
+          <div class="capa capa-{{ p.capa }}" aria-hidden="true">
+            {% if p.capa == "der" %}{{ capaPlano() }}{% elif p.capa == "izq" %}{{ capaChecklist() }}{% else %}{{ capaParcela() }}{% endif %}
+          </div>
         </div>
-        <h3 class="mt-8 text-[clamp(1.4rem,1.9vw,1.75rem)] font-semibold leading-tight tracking-[-0.02em] text-verde">{{ p.titulo }}</h3>
+
+        <h3 class="panel-titulo">{{ p.titulo }}<br><span class="text-hoja">{{ p.tituloHoja }}</span></h3>
         <p class="mb-8 mt-3 max-w-[40ch] text-[0.9375rem] leading-relaxed text-salvia">{{ p.texto }}</p>
-        <p class="panel-dato">
-          <span class="font-display text-[2.5rem] font-semibold leading-none tracking-[-0.03em] text-verde tabular"><span data-count="{{ p.valor }}">{{ p.valor }}</span>{% if p.unidad == "+" %}+{% endif %}</span>
-          <span class="text-[0.8125rem] leading-snug text-salvia">{% if p.unidad != "+" %}<span class="font-medium text-verde">{{ p.unidad }}</span> · {% endif %}{{ p.descripcion }}</span>
-        </p>
+
+        <div class="panel-dato">
+          <span class="panel-icono" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              {% if p.icono == "escudo" %}<path d="M11.143 20.743A12 12 0 0 1 3.5 6A12 12 0 0 0 12 3a12 12 0 0 0 8.5 3c.504 1.716.614 3.505.343 5.237"/><path d="m17.8 20.817-2.172 1.138a.392.392 0 0 1-.568-.41l.415-2.411-1.757-1.707a.389.389 0 0 1 .217-.665l2.428-.352 1.086-2.193a.392.392 0 0 1 .702 0l1.086 2.193 2.428.352a.39.39 0 0 1 .217.665l-1.757 1.707.414 2.41a.39.39 0 0 1-.567.411z"/>
+              {% elif p.icono == "planilla" %}<path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><path d="M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2m0 7h6m-6 4h6"/>
+              {% else %}<path d="M5 7a4 4 0 1 0 8 0a4 4 0 1 0-8 0M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2m1-17.87a4 4 0 0 1 0 7.75M21 21v-2a4 4 0 0 0-3-3.85"/>{% endif %}
+            </svg>
+          </span>
+          <span class="panel-cifra tabular"><span data-count="{{ p.valor }}">{{ p.valor }}</span>{% if p.unidad == "+" %}+{% endif %}</span>
+          <span class="panel-leyenda">{% if p.unidad != "+" %}<strong>{{ p.unidad }}</strong>{% endif %}{{ p.descripcion }}</span>
+          <a href="{{ p.enlace }}" class="panel-boton" aria-label="{{ p.enlaceTexto }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6 6l6-6m-6-6l6 6"/></svg>
+          </a>
+        </div>
       </article>
       {% endfor %}
     </div>

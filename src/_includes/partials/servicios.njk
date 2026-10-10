@@ -1,4 +1,4 @@
-{% from "components/figure.njk" import figure %}
+{% from "components/foto.njk" import foto %}
 {% from "components/epp.njk" import arte %}
 <section id="servicios" data-pin-h class="servicios on-dark bg-verde py-20 md:py-28" aria-labelledby="servicios-titulo">
   <div class="mx-auto flex w-full max-w-[120rem] flex-col gap-8 px-4 md:flex-row md:items-end md:justify-between md:px-8">
@@ -20,7 +20,7 @@
     <li class="card-serv">
       <a href="/servicios/#{{ s.slug }}" class="group block">
         <div class="card-serv-media">
-          {% if s.foto %}{{ figure(s.foto, s.titulo, "", "absolute inset-0 h-full w-full") }}{% else %}{{ arte(s.arte, "absolute inset-0 h-full w-full", 220) }}{% endif %}
+          {% if s.foto %}{{ foto(s.foto, s.fotoAlt, [560, 828, 1122], "(min-width: 1024px) 24vw, 78vw", "absolute inset-0 h-full w-full object-cover") }}{% else %}{{ arte(s.arte, "absolute inset-0 h-full w-full", 220) }}{% endif %}
         </div>
         <h3 class="mt-5 text-[clamp(1.25rem,1.5vw,1.5rem)] font-semibold leading-tight tracking-[-0.02em] text-marfil">{{ s.titulo }}</h3>
         <p class="mt-2 max-w-[34ch] text-[0.9375rem] leading-relaxed text-salvia-clara">{{ s.descripcion }}</p>
