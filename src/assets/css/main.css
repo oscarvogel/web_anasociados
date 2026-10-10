@@ -410,10 +410,6 @@
   .trabajo-marca img { max-width: 11rem; max-height: 3.5rem; width: auto; height: auto; mix-blend-mode: multiply; }
   .trabajo-lista { display: grid; gap: 1.75rem; }
   .logo-alianza { max-height: 3.5rem; width: auto; mix-blend-mode: multiply; }
-  /* cabeceras internas: plano técnico de fondo (curvas, parcelas, cotas) */
-  .plano-cabecera { position: absolute; z-index: -1; right: -12%; bottom: -6%; width: 125%; color: var(--color-marfil); opacity: 0.1; pointer-events: none; }
-  @media (min-width: 768px) { .plano-cabecera { right: 3%; top: calc(50% + 2.5rem); bottom: auto; width: min(40%, 28rem); translate: 0 -50%; opacity: 0.24; } }
-  .plano-texto { opacity: 0.8; }
   .lista-puntos { display: grid; gap: 0.5rem; font-size: 0.9375rem; line-height: 1.5; color: var(--color-salvia); }
   .lista-puntos li { position: relative; padding-left: 1.1rem; }
   .lista-puntos li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 0.4rem; height: 0.4rem; border-radius: 999px; background: var(--color-tierra); }
