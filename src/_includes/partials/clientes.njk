@@ -17,8 +17,14 @@
         <img src="{{ c.logo }}" alt="{{ c.alt }}" loading="lazy" decoding="async">
       </li>
       {% endfor %}
-      {# casillas vacías de la planilla: completan la última fila de 6 columnas (y por tanto de 2 y 3) #}
-      {% for i in range((6 - (clientes.clientes | length) % 6) % 6) %}<li class="celda" aria-hidden="true"></li>{% endfor %}
+      {# cierre de la planilla: llena lo que sobra de la última fila con 2, 3 o 6 columnas #}
+      {% set n = clientes.clientes | length %}{% set s2 = (2 - n % 2) % 2 %}{% set s3 = (3 - n % 3) % 3 %}{% set s6 = (6 - n % 6) % 6 %}
+      {% if s2 or s3 or s6 %}
+      <li class="celda celda-cta{% if s2 %} s2{% endif %}{% if s3 %} s3{% endif %}{% if s6 %} s6{% endif %}" style="--s2:{{ s2 }};--s3:{{ s3 }};--s6:{{ s6 }}">
+        <span class="mono text-salvia">{% if n + 1 < 10 %}0{% endif %}{{ n + 1 }} / Próxima empresa</span>
+        <a href="/contacto/" class="link-under mt-6 font-display text-[clamp(1.25rem,1.8vw,1.75rem)] font-semibold leading-tight tracking-[-0.02em] text-verde">¿Sumamos a tu empresa a la planilla? →</a>
+      </li>
+      {% endif %}
     </ul>
   </div>
 </section>

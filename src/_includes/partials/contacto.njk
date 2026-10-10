@@ -4,7 +4,7 @@
     <div class="lg:col-span-5">
       <p class="etiqueta etiqueta-claro">{{ contacto.etiqueta }}</p>
       <{{ nivelTitulo or "h2" }} id="contacto-titulo" class="mt-8 text-[clamp(2.1rem,4.4vw,4.25rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-marfil">
-        {{ contacto.titulo }}<br><span class="text-marfil/65">{{ contacto.tituloApagado }}</span>
+        {{ contacto.titulo }}<br><span class="text-marfil/75">{{ contacto.tituloApagado }}</span>
       </{{ nivelTitulo or "h2" }}>
       <dl class="mt-12 grid gap-6">
         {% for d in contacto.datos %}
