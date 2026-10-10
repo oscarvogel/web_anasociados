@@ -7,8 +7,31 @@ heroPage: true
 {% from "components/foto.njk" import foto %}
 {% from "components/epp.njk" import arte %}
 
-<section class="on-dark bg-verde pb-20 pt-36 md:pb-28 md:pt-44" aria-labelledby="servicios-h1">
-  <div class="mx-auto max-w-[90rem] px-6 md:px-12">
+<section class="relative isolate overflow-hidden on-dark bg-verde pb-20 pt-36 md:pb-28 md:pt-44" aria-labelledby="servicios-h1">
+  {# plano de relevamiento: curvas de nivel, parcelas, corte A–A, cotas, norte y escala #}
+  <svg class="plano-cabecera dibuja" viewBox="0 0 640 420" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" aria-hidden="true">
+    <g opacity="0.55">
+      <path pathLength="1" d="M248 210c8-62 72-104 140-98s118 52 112 112-62 96-126 92-134-44-126-106z"/>
+      <path pathLength="1" d="M206 214c10-92 104-150 196-140s166 76 156 162-92 138-182 132-180-62-170-154z"/>
+      <path pathLength="1" d="M164 222c12-120 134-196 252-182s214 100 200 212-120 180-236 172-228-82-216-202z"/>
+      <path pathLength="1" d="M300 204c4-30 36-50 70-46s56 26 52 56-32 46-64 44-62-24-58-54z"/>
+    </g>
+    <path pathLength="1" stroke-dasharray="0.002 0.003" d="M120 96h420M120 96v260M540 96v260M120 356h420M330 96v260M120 230h420"/>
+    <path pathLength="1" d="M92 300l520-150"/>
+    <circle pathLength="1" cx="92" cy="300" r="12"/><circle pathLength="1" cx="612" cy="150" r="12"/>
+    <path pathLength="1" d="M120 392h420M120 384v16M540 384v16"/>
+    <path pathLength="1" d="M584 40v44M584 40l-9 22h18z"/>
+    <path pathLength="1" d="M120 40h40M160 40h40M200 40h40M120 34v12M160 34v12M200 34v12M240 34v12"/>
+    <path pathLength="1" d="M36 24v24M24 36h24M604 384v24M592 396h24"/>
+    <g class="plano-texto" fill="currentColor" stroke="none" font-family="DM Mono, monospace" font-size="10" letter-spacing="1.5">
+      <text x="88" y="304">A</text><text x="608" y="154">A</text>
+      <text x="300" y="412">420 m</text>
+      <text x="579" y="100">N</text>
+      <text x="120" y="24">0</text><text x="156" y="24">50</text><text x="230" y="24">100 m</text>
+      <text x="332" y="226">LOTE 07</text><text x="424" y="190">+184</text>
+    </g>
+  </svg>
+  <div class="relative mx-auto max-w-[90rem] px-6 md:px-12">
     <h1 id="servicios-h1" class="hero-reveal max-w-[18ch] text-[clamp(2.5rem,5.4vw,5.5rem)] font-bold leading-[1.02] tracking-[-0.03em] text-marfil">Servicios de consultoría</h1>
     <p class="hero-reveal mt-8 max-w-[52ch] text-lg text-salvia-clara">Asesoría en higiene, seguridad y medio ambiente para lograr una operación más segura en tu empresa.</p>
   </div>
