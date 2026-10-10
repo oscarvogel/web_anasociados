@@ -314,10 +314,10 @@
   .celda { position: relative; display: grid; place-items: center; aspect-ratio: 3 / 2; padding: 1.5rem; border-right: 1px solid var(--linea); border-bottom: 1px solid var(--linea); }
   .celda img { max-width: 72%; max-height: 3.25rem; width: auto; height: auto; filter: grayscale(1) brightness(1.12) contrast(1.35); mix-blend-mode: multiply; opacity: 0.8; transition: filter 0.6s var(--ease-out-expo), opacity 0.6s var(--ease-out-expo); }
   .celda:hover img { filter: none; opacity: 1; }
-  .celda-cta { display: none; --sobra: var(--s2); grid-column: span var(--sobra); place-items: start; align-content: space-between; aspect-ratio: auto; text-align: left; }
-  .celda-cta.s2 { display: grid; }
-  @media (min-width: 640px) { .celda-cta { --sobra: var(--s3); } .celda-cta.s2 { display: none; } .celda-cta.s3 { display: grid; } }
-  @media (min-width: 1024px) { .celda-cta { --sobra: var(--s6); } .celda-cta.s2, .celda-cta.s3 { display: none; } .celda-cta.s6 { display: grid; } }
+  .celda-cta { display: grid; grid-column: 1 / -1; place-items: start; align-content: space-between; aspect-ratio: auto; min-height: 9rem; text-align: left; }
+  .celda-cta.s2 { grid-column: span var(--s2); }
+  @media (min-width: 640px) { .celda-cta, .celda-cta.s2 { grid-column: 1 / -1; } .celda-cta.s3 { grid-column: span var(--s3); } }
+  @media (min-width: 1024px) { .celda-cta, .celda-cta.s2, .celda-cta.s3 { grid-column: 1 / -1; } .celda-cta.s6 { grid-column: span var(--s6); } }
   .celda-n { position: absolute; left: 0.75rem; top: 0.6rem; font-size: 0.625rem; color: var(--color-salvia); }
 
   /* Nosotros: banda fotográfica con cifras y marquee */
