@@ -11,15 +11,52 @@
     wordmark.style.fontSize = Math.min(240, (100 * (wordmark.clientWidth - pad)) / w * 0.995) + 'px';
   };
   if (wordmark) {
+    let cuadro = 0;
     fit();
     document.fonts.ready.then(fit);
-    addEventListener('resize', fit);
+    addEventListener('resize', () => { cuadro = cuadro || requestAnimationFrame(() => { cuadro = 0; fit(); }); });
   }
 
   const root = document.documentElement;
   if (!root.classList.contains('motion')) return;
   if (!window.gsap || !window.ScrollTrigger || !window.SplitText) { root.classList.remove('motion'); return; }
   gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  // Servicios: la sección se fija y la galería avanza en horizontal (solo escritorio).
+  // Se crea primero a propósito: su espaciador desplaza lo que queda debajo y ScrollTrigger mide en orden de creación.
+  gsap.matchMedia().add('(min-width: 1024px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)', () => {
+    const sec = document.querySelector('[data-pin-h]');
+    if (!sec) return;
+    const track = sec.querySelector('[data-track]');
+    const cuenta = sec.querySelector('[data-cuenta]');
+    const barra = sec.querySelector('[data-barra]');
+    const n = track.children.length;
+    const dist = () => {
+      const last = track.lastElementChild;
+      return Math.max(0, last.offsetLeft + last.offsetWidth + parseFloat(getComputedStyle(track).paddingLeft) - innerWidth);
+    };
+    sec.classList.add('is-pinned');
+    const avance = gsap.to(track, {
+      x: () => -dist(), ease: 'none',
+      scrollTrigger: {
+        trigger: sec, start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 0.6, anticipatePin: 1, invalidateOnRefresh: true,
+        onUpdate: (st) => {
+          cuenta.textContent = String(Math.min(n, Math.floor(st.progress * n) + 1)).padStart(2, '0');
+          barra.style.transform = `scaleX(${st.progress})`;
+        },
+      },
+    });
+    // Teclado: al enfocar una tarjeta fuera de pantalla, el scroll avanza hasta mostrarla
+    const alEnfocar = (e) => {
+      const tarjeta = e.target.closest('.card-serv');
+      const st = avance.scrollTrigger;
+      if (!tarjeta || !st || !dist()) return;
+      const p = Math.min(1, Math.max(0, (tarjeta.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft)) / dist()));
+      window.scrollTo({ top: st.start + p * (st.end - st.start), behavior: 'instant' });
+    };
+    track.addEventListener('focusin', alEnfocar);
+    return () => { sec.classList.remove('is-pinned'); track.removeEventListener('focusin', alEnfocar); };
+  });
 
   gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
     // Entrada del hero: dolly de la foto, wordmark por letras, texto en cascada
@@ -34,16 +71,15 @@
       gsap.to('[data-hero-photo]', { yPercent: 6, ease: 'none', scrollTrigger: trigger });
       gsap.to(wordmark, { yPercent: -30, ease: 'none', scrollTrigger: trigger });
 
-      // Luz de cursor sobre la foto
+      // Luz de cursor sobre la foto (quickTo: un único tween reutilizado)
       const pos = { x: 72, y: 38 };
+      const aplicar = () => { hero.style.setProperty('--lx', pos.x + '%'); hero.style.setProperty('--ly', pos.y + '%'); };
+      const luzX = gsap.quickTo(pos, 'x', { duration: 0.8, ease: 'power3', onUpdate: aplicar });
+      const luzY = gsap.quickTo(pos, 'y', { duration: 0.8, ease: 'power3', onUpdate: aplicar });
       hero.addEventListener('pointermove', (e) => {
         const r = hero.getBoundingClientRect();
-        gsap.to(pos, {
-          x: ((e.clientX - r.left) / r.width) * 100,
-          y: ((e.clientY - r.top) / r.height) * 100,
-          duration: 0.8, ease: 'power3.out', overwrite: true,
-          onUpdate: () => { hero.style.setProperty('--lx', pos.x + '%'); hero.style.setProperty('--ly', pos.y + '%'); },
-        });
+        luzX(((e.clientX - r.left) / r.width) * 100);
+        luzY(((e.clientY - r.top) / r.height) * 100);
       });
     }
 
@@ -96,40 +132,5 @@
 
     // Si el usuario activa "reducir movimiento" con la página abierta, GSAP revierte y todo vuelve a verse
     return () => { root.classList.remove('motion'); cifras.forEach((el) => { el.textContent = el.dataset.count; }); };
-  });
-
-  // Servicios: la sección se fija y la galería avanza en horizontal (solo escritorio)
-  gsap.matchMedia().add('(min-width: 1024px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)', () => {
-    const sec = document.querySelector('[data-pin-h]');
-    if (!sec) return;
-    const track = sec.querySelector('[data-track]');
-    const cuenta = sec.querySelector('[data-cuenta]');
-    const barra = sec.querySelector('[data-barra]');
-    const n = track.children.length;
-    const dist = () => {
-      const last = track.lastElementChild;
-      return Math.max(0, last.offsetLeft + last.offsetWidth + parseFloat(getComputedStyle(track).paddingLeft) - innerWidth);
-    };
-    sec.classList.add('is-pinned');
-    const avance = gsap.to(track, {
-      x: () => -dist(), ease: 'none',
-      scrollTrigger: {
-        trigger: sec, start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 0.6, anticipatePin: 1, invalidateOnRefresh: true,
-        onUpdate: (st) => {
-          cuenta.textContent = String(Math.min(n, Math.floor(st.progress * n) + 1)).padStart(2, '0');
-          barra.style.transform = `scaleX(${st.progress})`;
-        },
-      },
-    });
-    // Teclado: al enfocar una tarjeta fuera de pantalla, el scroll avanza hasta mostrarla
-    const alEnfocar = (e) => {
-      const tarjeta = e.target.closest('.card-serv');
-      const st = avance.scrollTrigger;
-      if (!tarjeta || !st || !dist()) return;
-      const p = Math.min(1, Math.max(0, (tarjeta.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft)) / dist()));
-      window.scrollTo({ top: st.start + p * (st.end - st.start), behavior: 'instant' });
-    };
-    track.addEventListener('focusin', alEnfocar);
-    return () => { sec.classList.remove('is-pinned'); track.removeEventListener('focusin', alEnfocar); };
   });
 })();

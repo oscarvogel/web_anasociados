@@ -1,0 +1,48 @@
+{
+  "source": {
+    "file": "screenshot-1791647654582-3.jpg",
+    "width": 784,
+    "height": 375
+  },
+  "measurement": {
+    "k": 6,
+    "sampling": {
+      "method": "deterministic_stratified",
+      "max_pixels": 160000,
+      "sampled_pixels": 160000
+    }
+  },
+  "palette": [
+    {
+      "hex": "#15110e",
+      "coverage": 0.9141,
+      "role": "background"
+    },
+    {
+      "hex": "#2f2b27",
+      "coverage": 0.024,
+      "role": "unassigned"
+    },
+    {
+      "hex": "#c9c2b9",
+      "coverage": 0.0221,
+      "role": "unassigned"
+    },
+    {
+      "hex": "#5c5853",
+      "coverage": 0.0179,
+      "role": "unassigned"
+    },
+    {
+      "hex": "#e9e3db",
+      "coverage": 0.0155,
+      "role": "text"
+    },
+    {
+      "hex": "#8a847e",
+      "coverage": 0.0064,
+      "role": "unassigned"
+    }
+  ],
+  "measured": true
+}
