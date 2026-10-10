@@ -24,7 +24,7 @@
 
   // Servicios: la sección se fija y la galería avanza en horizontal (solo escritorio).
   // Se crea primero a propósito: su espaciador desplaza lo que queda debajo y ScrollTrigger mide en orden de creación.
-  gsap.matchMedia().add('(min-width: 1024px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)', () => {
+  gsap.matchMedia().add('(min-width: 1024px) and (min-height: 800px) and (prefers-reduced-motion: no-preference)', () => {
     const sec = document.querySelector('[data-pin-h]');
     if (!sec) return;
     const track = sec.querySelector('[data-track]');
@@ -35,6 +35,9 @@
       const last = track.lastElementChild;
       return Math.max(0, last.offsetLeft + last.offsetWidth + parseFloat(getComputedStyle(track).paddingLeft) - innerWidth);
     };
+    // Si las tarjetas caben en pantalla (menos de 80 px de recorrido) no hay nada que desplazar: se muestran todas quietas
+    const indicador = cuenta.closest('.mono');
+    if (dist() < 80) { indicador.style.display = 'none'; return () => { indicador.style.display = ''; }; }
     sec.classList.add('is-pinned');
     const avance = gsap.to(track, {
       x: () => -dist(), ease: 'none',
