@@ -4,3 +4,5 @@ _site/
 Thumbs.db
 npm-debug.log*
 src/assets/css/app.css
+design-source/originales/
+.claude/skills/**/node_modules/
