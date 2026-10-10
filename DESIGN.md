@@ -31,3 +31,13 @@ Syne (titulares, 500–800) · General Sans (cuerpo, Fontshare) · DM Mono (etiq
 
 ## Componentes ya existentes
 `.glass`, `.logo-tile`, `.pill-nav`, `.btn-chip`, `.link-under`, `.etiqueta`, `.mono`, `.hero-wordmark` (autoajuste por JS), `figure` (placeholder).
+
+## Patrones permitidos (nombrados por el brief; ver `genjutsu/tells`)
+Auditoría del 2026-10-10: estos patrones los detecta el auditor como "tells", pero los pide la réplica de Stonework o el diseño aportado por el usuario, y por eso no cuentan como problema:
+- **Etiquetas numeradas** `( 01 )` y `01 / Experiencia`: gramática de Stonework (el brief las permite expresamente).
+- **Vidrio** (`backdrop-filter`) en la pastilla de navegación, la ficha de logo y la tarjeta del hero: pieza central de la cabecera de Stonework.
+- **Luz de cursor** (degradado radial sobre la foto del hero): decisión confirmada del usuario.
+- **Tres tarjetas iguales** en el Enfoque: rediseño aportado por el usuario.
+- **Indicación "Scroll"** en el hero: presente en Stonework.
+- **Mono en etiquetas, fechas y cifras** (DM Mono): fuente de la referencia, usada para datos y rótulos.
+- **Empalmes difuminados** entre secciones (`.fusion`): pedido del usuario; sustituyen al recuadro "cortina".

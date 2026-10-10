@@ -65,7 +65,7 @@
       gsap.set(wordmark, { autoAlpha: 1 });
       gsap.timeline({ defaults: { ease: 'expo.out' } })
         .from('[data-hero-photo] img', { scale: 1.14, duration: 2.2 }, 0)
-        .from(split.chars, { yPercent: 115, duration: 1.2, stagger: 0.035 }, 0.15);
+        .from(split.chars, { yPercent: 115, duration: 0.9, stagger: 0.035 }, 0.15);
 
       const trigger = { trigger: hero, start: 'top top', end: 'bottom top', scrub: true };
       gsap.to('[data-hero-photo]', { yPercent: 6, ease: 'none', scrollTrigger: trigger });
@@ -74,8 +74,8 @@
       // Luz de cursor sobre la foto (quickTo: un único tween reutilizado)
       const pos = { x: 72, y: 38 };
       const aplicar = () => { hero.style.setProperty('--lx', pos.x + '%'); hero.style.setProperty('--ly', pos.y + '%'); };
-      const luzX = gsap.quickTo(pos, 'x', { duration: 0.8, ease: 'power3', onUpdate: aplicar });
-      const luzY = gsap.quickTo(pos, 'y', { duration: 0.8, ease: 'power3', onUpdate: aplicar });
+      const luzX = gsap.quickTo(pos, 'x', { duration: 0.9, ease: 'power3', onUpdate: aplicar });
+      const luzY = gsap.quickTo(pos, 'y', { duration: 0.9, ease: 'power3', onUpdate: aplicar });
       hero.addEventListener('pointermove', (e) => {
         const r = hero.getBoundingClientRect();
         luzX(((e.clientX - r.left) / r.width) * 100);
@@ -90,13 +90,6 @@
       start: 'top 90%',
       once: true,
       onEnter: (els) => gsap.fromTo(els, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.07, ease: 'power3.out', overwrite: true }),
-    });
-
-    // Cortina: la sección se abre desde un recuadro al llegar
-    gsap.utils.toArray('[data-cortina]').forEach((el) => {
-      gsap.fromTo(el,
-        { clipPath: 'inset(5% 3% 0% 3% round 28px)' },
-        { clipPath: 'inset(0% 0% 0% 0% round 0px)', ease: 'none', scrollTrigger: { trigger: el, start: 'top 96%', end: 'top 45%', scrub: true } });
     });
 
     // Fondos fotográficos con parallax suave y marquee de clientes

@@ -33,6 +33,7 @@
     -webkit-text-size-adjust: 100%;
     scrollbar-color: var(--color-salvia) var(--color-marfil);
   }
+  :root { --linea: rgb(20 35 28 / 0.15); }
   h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
   p { text-wrap: pretty; }
   ::selection { background: var(--color-tierra); color: var(--color-marfil); }
@@ -96,7 +97,7 @@
   .site-header > * { pointer-events: auto; }
   @media (min-width: 768px) { .site-header { padding: 1.25rem 2rem 0; } }
 
-  .portal-link { color: var(--color-verde); }
+  .portal-link { color: var(--color-verde); transition: color 0.3s var(--ease-out-expo); }
   .portal-link:hover { color: var(--color-tierra); }
   .site-header[data-oscuro] .portal-link { color: var(--color-marfil); }
   .site-header[data-oscuro] .portal-link:hover { color: var(--color-tierra-clara); }
@@ -162,13 +163,13 @@
     border-radius: 0.375rem;
     background: var(--color-marfil);
     color: var(--color-verde);
-    transition: transform 0.4s var(--ease-out-expo);
+    transition: transform 0.3s var(--ease-out-expo);
   }
   .btn-chip:hover > span:last-child { transform: translateX(2px); }
   .on-dark .btn-chip { background: var(--color-marfil); color: var(--color-verde); }
   .on-dark .btn-chip > span:last-child { background: var(--color-verde); color: var(--color-marfil); }
   .on-dark .btn-chip:hover { background: var(--color-tierra-clara); }
-  .link-under { border-bottom: 1px solid currentColor; padding-bottom: 0.125rem; font-size: 0.9375rem; font-weight: 500; }
+  .link-under { transition: color 0.3s var(--ease-out-expo); border-bottom: 1px solid currentColor; padding-bottom: 0.125rem; font-size: 0.9375rem; font-weight: 500; }
   .link-under:hover { color: var(--color-tierra); }
 
   .etiqueta {
@@ -207,7 +208,7 @@
     z-index: 1;
     background:
       linear-gradient(90deg, rgb(20 35 28 / 0.9) 0%, rgb(20 35 28 / 0.58) 34%, transparent 64%),
-      linear-gradient(0deg, rgb(20 35 28 / 0.78) 0%, transparent 40%),
+      linear-gradient(0deg, var(--color-verde) 0%, rgb(20 35 28 / 0.7) 14%, transparent 42%),
       linear-gradient(180deg, rgb(20 35 28 / 0.62) 0%, rgb(20 35 28 / 0.3) 22%, transparent 40%);
   }
   @media (max-width: 767px) {
@@ -283,7 +284,7 @@
   .panel-media { position: relative; margin-top: 1.25rem; }
   .panel-foto { aspect-ratio: 2.35 / 1; overflow: hidden; border-radius: 0.5rem; background: var(--color-verde-2); }
   @media (max-width: 767px) { .panel-foto { aspect-ratio: 16 / 9; } }
-  .panel-foto img { transition: transform 1.2s var(--ease-out-expo); }
+  .panel-foto img { transition: transform 0.9s var(--ease-out-expo); }
   .panel:hover .panel-foto img { transform: scale(1.03); }
   /* Panel diagonal con el elemento técnico, como en el diseño de las tarjetas */
   .capa { position: absolute; pointer-events: none; color: var(--color-marfil); }
@@ -296,7 +297,7 @@
   .capa-abajo .capa-svg { left: 40%; top: 11%; width: 44%; }
   .panel-titulo { margin-top: 1.25rem; font-family: var(--font-display); font-size: clamp(1.7rem, 2.3vw, 2.25rem); font-weight: 700; line-height: 1.04; letter-spacing: -0.03em; color: var(--color-verde); }
   .text-hoja { color: var(--color-hoja); }
-  .panel-dato { display: flex; align-items: center; gap: 0.9rem; margin-top: auto; padding-top: 1.25rem; border-top: 1px solid rgb(20 35 28 / 0.14); }
+  .panel-dato { display: flex; align-items: center; gap: 0.9rem; margin-top: auto; padding-top: 1.25rem; border-top: 1px solid var(--linea); }
   .panel-icono { flex: none; width: 2.5rem; height: 2.5rem; color: var(--color-verde); }
   .panel-icono svg { width: 100%; height: 100%; }
   .panel-cifra { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; line-height: 1; letter-spacing: -0.03em; color: var(--color-verde); }
@@ -307,19 +308,19 @@
   .panel-boton:hover { background: var(--color-verde); color: var(--color-marfil); }
 
   /* Clientes: planilla de logos con líneas finas (tabla de inspección) */
-  .planilla { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid rgb(20 35 28 / 0.14); border-left: 1px solid rgb(20 35 28 / 0.14); }
+  .planilla { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--linea); border-left: 1px solid var(--linea); }
   @media (min-width: 640px) { .planilla { grid-template-columns: repeat(3, 1fr); } }
   @media (min-width: 1024px) { .planilla { grid-template-columns: repeat(6, 1fr); } }
-  .celda { position: relative; display: grid; place-items: center; aspect-ratio: 3 / 2; padding: 1.5rem; border-right: 1px solid rgb(20 35 28 / 0.14); border-bottom: 1px solid rgb(20 35 28 / 0.14); }
-  .celda img { max-width: 72%; max-height: 3.25rem; width: auto; height: auto; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7; transition: filter 0.5s var(--ease-out-expo), opacity 0.5s var(--ease-out-expo); }
+  .celda { position: relative; display: grid; place-items: center; aspect-ratio: 3 / 2; padding: 1.5rem; border-right: 1px solid var(--linea); border-bottom: 1px solid var(--linea); }
+  .celda img { max-width: 72%; max-height: 3.25rem; width: auto; height: auto; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7; transition: filter 0.6s var(--ease-out-expo), opacity 0.6s var(--ease-out-expo); }
   .celda:hover img { filter: none; opacity: 1; }
   .celda-n { position: absolute; left: 0.75rem; top: 0.6rem; font-size: 0.625rem; color: var(--color-salvia); }
 
   /* Nosotros: banda fotográfica con cifras y marquee */
   .nosotros { position: relative; isolation: isolate; overflow: hidden; }
-  .nosotros-foto { position: absolute; inset: -10% 0; z-index: -2; will-change: transform; }
+  .nosotros-foto { position: absolute; inset: -10% 0; z-index: -3; will-change: transform; }
   .nosotros-foto picture { display: block; height: 100%; }
-  .nosotros-velo { position: absolute; inset: 0; z-index: -1; background: rgb(20 35 28 / 0.72); }
+  .nosotros-velo { position: absolute; inset: 0; z-index: -2; background: rgb(20 35 28 / 0.72); }
   .cifras { display: grid; grid-template-columns: repeat(2, 1fr); row-gap: 2.5rem; }
   @media (min-width: 1024px) { .cifras { grid-template-columns: repeat(4, 1fr); } }
   .cifras > li { padding-left: 1.5rem; border-left: 1px solid rgb(234 232 220 / 0.2); }
@@ -334,16 +335,16 @@
   .arte .epp { width: 78%; height: auto; max-height: 78%; }
 
   /* Artículos: índice editorial */
-  .fila { position: relative; display: grid; gap: 0.5rem 2rem; padding-block: 1.75rem; border-top: 1px solid rgb(20 35 28 / 0.15); }
-  li:last-child > .fila { border-bottom: 1px solid rgb(20 35 28 / 0.15); }
+  .fila { position: relative; display: grid; gap: 0.5rem 2rem; padding-block: 1.75rem; border-top: 1px solid var(--linea); }
+  li:last-child > .fila { border-bottom: 1px solid var(--linea); }
   @media (min-width: 1024px) { .fila { grid-template-columns: 9rem 11rem 1.1fr 1fr 7rem; align-items: center; } .fila-estado { text-align: right; } }
   .fila-foto { display: block; width: min(100%, 16rem); aspect-ratio: 16 / 10; overflow: hidden; border-radius: 0.5rem; background: var(--color-verde-2); }
   .fila-foto img { transition: transform 0.9s var(--ease-out-expo); }
   .fila-enlace:hover .fila-foto img { transform: scale(1.05); }
-  .fila::before { content: ""; position: absolute; inset: -1px 0 auto 0; height: 2px; background: var(--color-tierra); transform: scaleX(0); transform-origin: left; transition: transform 0.7s var(--ease-out-expo); }
+  .fila::before { content: ""; position: absolute; inset: -1px 0 auto 0; height: 2px; background: var(--color-tierra); transform: scaleX(0); transform-origin: left; transition: transform 0.6s var(--ease-out-expo); }
   .fila-enlace:hover::before, .fila-enlace:focus-visible::before { transform: scaleX(1); }
   .fila-fecha, .fila-estado { color: var(--color-salvia); }
-  .fila-titulo { font-family: var(--font-display); font-size: clamp(1.4rem, 2.2vw, 2rem); font-weight: 600; line-height: 1.1; letter-spacing: -0.02em; color: var(--color-verde); transition: transform 0.5s var(--ease-out-expo); }
+  .fila-titulo { font-family: var(--font-display); font-size: clamp(1.4rem, 2.2vw, 2rem); font-weight: 600; line-height: 1.1; letter-spacing: -0.02em; color: var(--color-verde); transition: transform 0.6s var(--ease-out-expo); }
   .fila-enlace:hover .fila-titulo { transform: translateX(0.5rem); }
   .fila-extracto { font-size: 0.9375rem; line-height: 1.5; color: var(--color-salvia); }
   .fila-enlace .fila-estado { color: var(--color-tierra); }
@@ -365,7 +366,8 @@
   .panel-form input[type="text"], .panel-form input[type="email"], .panel-form input[type="tel"], .panel-form textarea { width: 100%; padding: 0.5rem 0 0.75rem; background: transparent; border: 0; border-bottom: 1px solid rgb(20 35 28 / 0.3); border-radius: 0; font: inherit; color: var(--color-verde); transition: border-color 0.3s; }
   .panel-form textarea { resize: vertical; }
   .panel-form ::placeholder { color: var(--color-apagado); opacity: 1; }
-  .panel-form input:focus, .panel-form textarea:focus { outline: none; border-bottom-color: var(--color-tierra); }
+  .panel-form input:focus, .panel-form textarea:focus { border-bottom-color: var(--color-tierra); }
+  .panel-form input:focus-visible, .panel-form textarea:focus-visible { outline: 2px solid var(--color-tierra); outline-offset: 4px; }
   .panel-form [aria-invalid="true"] { border-bottom-color: var(--color-tierra); }
   .panel-form .btn-chip { background: var(--color-verde); color: var(--color-marfil); }
   .panel-form .btn-chip:hover { background: var(--color-tierra); }
@@ -397,8 +399,8 @@
   .prosa section + section { margin-top: 3rem; }
 
   /* Trabajos con clientes */
-  .trabajo-cliente { display: grid; gap: 2rem; padding-block: 2.5rem; border-top: 1px solid rgb(20 35 28 / 0.15); }
-  li:last-child > .trabajo-cliente { border-bottom: 1px solid rgb(20 35 28 / 0.15); }
+  .trabajo-cliente { display: grid; gap: 2rem; padding-block: 2.5rem; border-top: 1px solid var(--linea); }
+  li:last-child > .trabajo-cliente { border-bottom: 1px solid var(--linea); }
   @media (min-width: 1024px) { .trabajo-cliente { grid-template-columns: 5fr 7fr; gap: 4rem; } }
   .trabajo-marca { display: grid; gap: 0.75rem; align-content: start; justify-items: start; }
   .trabajo-marca img { max-width: 11rem; max-height: 3.5rem; width: auto; height: auto; mix-blend-mode: multiply; }
@@ -407,6 +409,19 @@
   .lista-puntos { display: grid; gap: 0.5rem; font-size: 0.9375rem; line-height: 1.5; color: var(--color-salvia); }
   .lista-puntos li { position: relative; padding-left: 1.1rem; }
   .lista-puntos li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 0.4rem; height: 0.4rem; border-radius: 999px; background: var(--color-tierra); }
+
+  /* Empalmes: el color de la sección vecina se funde en el borde, sin corte.
+     El degradado vive en el relleno vacío de la sección (arriba o abajo) y queda detrás del contenido. */
+  .fusion { position: relative; isolation: isolate; }
+  .fusion::before, .fusion::after { content: ""; position: absolute; left: 0; right: 0; z-index: -1; pointer-events: none; height: var(--fusion-alto, clamp(4.5rem, 9vw, 8rem)); }
+  .fusion::before { top: 0; background: linear-gradient(to bottom, var(--fusion-arriba, transparent) 0%, color-mix(in srgb, var(--fusion-arriba, transparent) 72%, transparent) 22%, color-mix(in srgb, var(--fusion-arriba, transparent) 42%, transparent) 50%, color-mix(in srgb, var(--fusion-arriba, transparent) 15%, transparent) 76%, transparent 100%); }
+  .fusion::after { bottom: 0; background: linear-gradient(to top, var(--fusion-abajo, transparent) 0%, color-mix(in srgb, var(--fusion-abajo, transparent) 72%, transparent) 22%, color-mix(in srgb, var(--fusion-abajo, transparent) 42%, transparent) 50%, color-mix(in srgb, var(--fusion-abajo, transparent) 15%, transparent) 76%, transparent 100%); }
+  .f-arriba-verde { --fusion-arriba: var(--color-verde); }
+  .f-arriba-tierra { --fusion-arriba: var(--color-tierra); }
+  .f-arriba-marfil { --fusion-arriba: var(--color-marfil); }
+  .f-abajo-verde { --fusion-abajo: var(--color-verde); }
+  .f-abajo-tierra { --fusion-abajo: var(--color-tierra); }
+  .f-corto { --fusion-alto: 4rem; }
 
   /* Placeholder de marca hasta tener fotos reales (ver macro figure) */
   .placeholder {

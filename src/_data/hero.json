@@ -1,12 +1,24 @@
 {
   "marca": "AN ASOCIADOS",
-  "etiqueta": "Consultoría — Argentina y Paraguay",
+  "etiqueta": "Consultoría en Argentina y Paraguay",
   "intro": "Tu socio estratégico en",
   "titulo": "Higiene, Seguridad, Medio Ambiente y Sistemas de Gestión Integrados",
   "descripcion": "Más de una década brindando soluciones personalizadas y cumpliendo normativas internacionales en Argentina y Paraguay.",
-  "cta": { "texto": "Contáctanos hoy mismo", "url": "/contacto/" },
-  "secundario": { "texto": "Nuestros servicios", "url": "#servicios" },
+  "cta": {
+    "texto": "Contáctanos hoy mismo",
+    "url": "/contacto/"
+  },
+  "secundario": {
+    "texto": "Nuestros servicios",
+    "url": "#servicios"
+  },
   "coordenadas": "26°01′S · 54°36′O",
-  "portal": { "texto": "Portal", "url": "https://bit.ly/an-asociados" },
-  "contacto": { "texto": "Contacto", "url": "/contacto/" }
+  "portal": {
+    "texto": "Portal",
+    "url": "https://bit.ly/an-asociados"
+  },
+  "contacto": {
+    "texto": "Contacto",
+    "url": "/contacto/"
+  }
 }
