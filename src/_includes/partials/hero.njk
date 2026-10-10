@@ -30,7 +30,6 @@
       </div>
 
       <div class="hidden flex-col items-end gap-5 pb-10 md:col-span-4 md:col-start-9 md:flex lg:col-span-3 lg:col-start-10">
-        <p class="mono hero-reveal text-right text-marfil/70" aria-hidden="true">{{ hero.coordenadas }}</p>
         <a href="/servicios/#{{ destacado.slug }}" class="glass hero-reveal flex w-full items-center gap-4 rounded-xl p-2.5 pr-5">
           {% if destacado.foto %}<span class="block h-28 w-24 shrink-0 overflow-hidden rounded-lg">{{ foto(destacado.foto, "", [560], "96px", "h-full w-full object-cover") }}</span>{% else %}{{ arte(destacado.arte, "h-28 w-24 shrink-0 rounded-lg", 84) }}{% endif %}
           <span class="block text-verde">
