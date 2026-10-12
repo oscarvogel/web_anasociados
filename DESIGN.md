@@ -1,4 +1,6 @@
-# DESIGN.md — Dirección visual (v2, vigente)
+# DESIGN.md — Dirección visual (v2, REEMPLAZADA)
+
+> **2026-10-11:** en migración a Next.js con la dirección "bosque oscuro inmersivo" (rama `migracion-react`). El contrato vigente está en `.impeccable/surfaces/app-page-tsx.md`; este archivo se reescribe como v3 al cerrar la migración. Lo de abajo describe el sitio Eleventy.
 
 **Concepto:** réplica de la estructura de Stonework/Talven (hero con wordmark gigante, pastilla de navegación numerada, secciones alternando claro/oscuro, etiquetas `( 01 )`, encabezados en dos tonos, cifras en mono, formulario con chips) con identidad propia y orientada a empresas forestales e industriales. No se copia código, fotos ni textos de Stonework (licencia Pro). El brief del usuario gana sobre las reglas anti-kicker/anti-numeración de `impeccable`.
 

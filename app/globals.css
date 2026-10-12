@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+  --color-noche: #0b1510;
+  --color-monte: #13211a;
+  --color-linea: #26382d;
+  --color-marfil: #ece9dc;
+  --color-liquen: #a9b6a1;
+  --color-musgo: #6f7f69;
+  --color-brasa: #e8714a;
+  --color-senal: #f0c23b;
+  --color-tierra: #a63e24;
+
+  --font-display: var(--font-archivo), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-general), system-ui, sans-serif;
+  --font-mono: var(--font-dm-mono), ui-monospace, monospace;
+
+  --ease-salida: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    background: var(--color-noche);
+    color: var(--color-marfil);
+    color-scheme: dark;
+    -webkit-font-smoothing: antialiased;
+    scrollbar-color: var(--color-linea) var(--color-noche);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+  body { font-family: var(--font-sans); caret-color: var(--color-brasa); }
+  h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
+  ::selection { background: var(--color-brasa); color: var(--color-noche); }
+  :focus-visible { outline: 2px solid var(--color-brasa); outline-offset: 3px; border-radius: 2px; }
+  [id] { scroll-margin-top: 5rem; }
+}
+
+@layer components {
+  /* Rótulo de plano: mayúsculas anchas, como los textos de un plano técnico */
+  .rotulo {
+    font-family: var(--font-display);
+    font-stretch: 125%;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .dato { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 0.75rem; letter-spacing: 0.02em; }
+
+  .btn-brasa {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    min-height: 2.75rem; padding: 0 1.25rem; border-radius: 999px;
+    background: var(--color-brasa); color: var(--color-noche);
+    font-weight: 600; font-size: 0.9375rem;
+    transition: background-color 0.3s var(--ease-salida), transform 0.3s var(--ease-salida);
+  }
+  .btn-brasa:hover { background: var(--color-marfil); }
+  .btn-brasa:active { transform: scale(0.97); }
+
+  .enlace { text-decoration: underline; text-decoration-color: color-mix(in oklab, currentColor 35%, transparent); text-underline-offset: 0.3em; text-decoration-thickness: 1px; transition: text-decoration-color 0.3s, color 0.3s; }
+  .enlace:hover { text-decoration-color: var(--color-brasa); color: var(--color-marfil); }
+
+  /* Ítem de la navegación: un círculo sube desde abajo y rellena la pastilla */
+  .nav-item { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; height: 100%; padding: 0 1rem; border-radius: 999px; font-size: 0.875rem; font-weight: 500; color: var(--color-marfil); transition: color 0.35s var(--ease-salida); }
+  .nav-item::before { content: ""; position: absolute; z-index: -1; left: 50%; bottom: 0; width: 150%; aspect-ratio: 1; border-radius: 50%; background: var(--color-marfil); translate: -50% 110%; transition: translate 0.45s var(--ease-salida); }
+  .nav-item:hover, .nav-item:focus-visible { color: var(--color-noche); }
+  .nav-item:hover::before, .nav-item:focus-visible::before { translate: -50% 35%; }
+  .nav-item[aria-current]::after { content: ""; position: absolute; left: 50%; bottom: 0.3rem; width: 4px; height: 4px; border-radius: 50%; background: var(--color-brasa); translate: -50% 0; }
+}
