@@ -1,4 +1,7 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+@source "../app";
+@source "../components";
+@source "../data";
 
 @theme {
   --color-noche: #0b1510;
@@ -66,4 +69,40 @@
   .nav-item:hover, .nav-item:focus-visible { color: var(--color-noche); }
   .nav-item:hover::before, .nav-item:focus-visible::before { translate: -50% 35%; }
   .nav-item[aria-current]::after { content: ""; position: absolute; left: 50%; bottom: 0.3rem; width: 4px; height: 4px; border-radius: 50%; background: var(--color-brasa); translate: -50% 0; }
+}
+
+@layer components {
+  /* Linterna: borde y halo brasa que siguen al puntero (ver components/Linterna.tsx) */
+  .linterna > * { position: relative; isolation: isolate; }
+  .linterna > *::after {
+    content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none; border-radius: inherit; padding: 1px;
+    background: radial-gradient(280px circle at var(--lx, -999px) var(--ly, -999px), var(--color-brasa), transparent 70%);
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  }
+  .linterna > *::before {
+    content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; border-radius: inherit;
+    background: radial-gradient(420px circle at var(--lx, -999px) var(--ly, -999px), rgb(232 113 74 / 0.09), transparent 65%);
+  }
+
+  /* Con "reducir movimiento" la cinta de logos queda quieta: se muestran todos en filas */
+  @media (prefers-reduced-motion: reduce) {
+    /* !important: le gana a las utilidades de Tailwind (flex, w-max) que trae el componente */
+    .clientes-loop [aria-hidden="true"] { display: none !important; }
+    .clientes-loop > div > div { width: 100% !important; justify-content: center; }
+    .clientes-loop ul { flex-wrap: wrap; justify-content: center; row-gap: 1rem; padding-inline: 1rem; }
+  }
+
+  .campo-control {
+    width: 100%; border-radius: 0.75rem; border: 1px solid rgb(236 233 220 / 0.45); background: rgb(11 21 16 / 0.22);
+    padding: 0.8rem 1rem; color: var(--color-marfil); transition: border-color 0.25s, background-color 0.25s;
+  }
+  .campo-control::placeholder { color: rgb(236 233 220 / 0.82); }
+  .campo-control:focus-visible { outline: 2px solid var(--color-marfil); outline-offset: 2px; background: rgb(11 21 16 / 0.35); }
+  .campo-control[aria-invalid] { border-color: var(--color-senal); }
+  .chip { display: inline-flex; cursor: pointer; }
+  .chip input { position: absolute; opacity: 0; pointer-events: none; }
+  .chip span { display: inline-flex; align-items: center; min-height: 2.5rem; padding: 0 1rem; border-radius: 999px; border: 1px solid rgb(236 233 220 / 0.45); font-size: 0.875rem; transition: background-color 0.25s, color 0.25s, border-color 0.25s; }
+  .chip:hover span { border-color: var(--color-marfil); }
+  .chip input:checked + span { background: var(--color-marfil); color: var(--color-noche); border-color: var(--color-marfil); }
+  .chip input:focus-visible + span { outline: 2px solid var(--color-marfil); outline-offset: 3px; }
 }

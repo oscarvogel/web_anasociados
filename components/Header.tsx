@@ -40,7 +40,7 @@ export default function Header() {
   }, [ruta]);
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter] duration-500 ${scrolleado || abierto ? "bg-noche/85 backdrop-blur-md" : ""}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter] duration-500 ${scrolleado || abierto ? "bg-noche/85 backdrop-blur-md" : "bg-[linear-gradient(to_bottom,rgb(11_21_16/0.7),transparent)]"}`}>
       <div className="mx-auto flex h-16 max-w-[120rem] items-center justify-between gap-4 px-4 md:h-20 md:px-8">
         <Link href="/" className="flex items-center gap-3" aria-label="AN Asociados, inicio">
           <img src="/assets/images/logo_almada_neri.png" alt="" width={36} height={36} className="h-9 w-auto" />
@@ -61,7 +61,7 @@ export default function Header() {
           <button
             ref={boton}
             type="button"
-            className="grid h-11 w-11 place-items-center rounded-full border border-marfil/20 lg:hidden"
+            className="grid h-11 w-11 place-items-center rounded-full border border-marfil/30 bg-noche/50 backdrop-blur-sm lg:hidden"
             aria-expanded={abierto}
             aria-controls="menu-movil"
             aria-label={abierto ? "Cerrar menú" : "Abrir menú"}
