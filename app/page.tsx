@@ -5,6 +5,7 @@ import Enfoque from "@/components/home/Enfoque";
 import Hero from "@/components/home/Hero";
 import Nosotros from "@/components/home/Nosotros";
 import Servicios from "@/components/home/Servicios";
+import Territorio from "@/components/home/Territorio";
 
 export const metadata = { title: { absolute: "Inicio | AN Asociados - Consultoría Almada Neri & Asociados" } };
 
@@ -13,9 +14,10 @@ export default function Inicio() {
     <>
       <Hero />
       <Enfoque />
+      <Territorio />
       <Servicios />
-      <Clientes />
       <Nosotros />
+      <Clientes />
       <Articulos />
       <Contacto />
     </>

@@ -1,37 +1,61 @@
+"use client";
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import { useRef } from "react";
 import Foto from "@/components/Foto";
-import Linterna from "@/components/Linterna";
 import { servicios } from "@/lib/datos";
 
-// Rodales del plano: el primero ocupa una franja ancha, el resto se reparte en parcelas iguales
-const parcela = ["md:col-span-2 lg:col-span-4 min-h-[26rem] lg:min-h-[32rem]", "lg:col-span-2", "lg:col-span-2", "lg:col-span-2", "md:col-span-2 lg:col-span-2"];
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
+const total = String(servicios.length).padStart(2, "0");
+
+// Capítulos a pantalla completa que se apilan (sticky): cada servicio tapa al anterior, que se aleja y se apaga
 export default function Servicios() {
-  return (
-    <section id="servicios" className="bg-monte py-28 md:py-40" aria-labelledby="servicios-titulo">
-      <div className="mx-auto max-w-[120rem] px-4 md:px-8">
-        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <h2 id="servicios-titulo" className="max-w-[20ch] text-[clamp(2.1rem,4.4vw,4.25rem)] font-semibold leading-[1.04] tracking-[-0.03em]">
-            Servicios de consultoría <span className="text-liquen">con más de 13 años de experiencia.</span>
-          </h2>
-          <Link href="/servicios/" className="enlace shrink-0">Ver el detalle de cada servicio →</Link>
-        </div>
+  const raiz = useRef<HTMLElement>(null);
+  useGSAP(() => {
+    gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
+      const capitulos = gsap.utils.toArray<HTMLElement>(".capitulo", raiz.current);
+      capitulos.slice(0, -1).forEach((c, i) => {
+        gsap.to(c.querySelector(".capitulo-cuadro"), {
+          scale: 0.9, filter: "brightness(0.35)", ease: "none",
+          scrollTrigger: { trigger: capitulos[i + 1], start: "top bottom", end: "top top", scrub: true },
+        });
+      });
+    });
+  }, { scope: raiz });
 
-        <Linterna as="ul" className="mt-14 grid gap-3 md:mt-20 md:grid-cols-2 lg:grid-cols-6">
-          {servicios.map((s, i) => (
-            <li key={s.slug} className={`overflow-hidden rounded-2xl border border-linea ${parcela[i]}`}>
-              <Link href={`/servicios/#${s.slug}`} className="group relative flex h-full min-h-[22rem] flex-col justify-end p-6 md:p-7">
-                <Foto base={s.foto} alt={s.fotoAlt} anchos={[560, 828, 1122]} sizes={i === 0 ? "(min-width: 1024px) 64vw, 100vw" : "(min-width: 1024px) 32vw, (min-width: 768px) 50vw, 100vw"}
-                  className="absolute inset-0 -z-10 h-full w-full object-cover" />
-                <span aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,var(--color-noche)_10%,rgb(11_21_16/0.7)_45%,rgb(11_21_16/0.1))]" />
-                <h3 className={`max-w-[22ch] font-semibold leading-tight tracking-[-0.02em] ${i === 0 ? "text-[clamp(1.6rem,2.6vw,2.5rem)]" : "text-[clamp(1.25rem,1.6vw,1.5rem)]"}`}>{s.titulo}</h3>
-                <p className="mt-2 max-w-[38ch] text-[0.9375rem] leading-relaxed text-liquen">{s.descripcion}</p>
-                <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-marfil transition-colors group-hover:text-brasa">Ver servicio <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span></span>
-              </Link>
-            </li>
-          ))}
-        </Linterna>
+  return (
+    <section ref={raiz} id="servicios" className="bg-noche" aria-labelledby="servicios-titulo">
+      <div className="mx-auto flex max-w-[120rem] flex-col gap-8 px-4 pb-16 pt-28 md:flex-row md:items-end md:justify-between md:px-8 md:pb-20 md:pt-40">
+        <h2 id="servicios-titulo" className="max-w-[18ch] text-[clamp(2.1rem,5.2vw,5rem)] font-semibold leading-[1.02] tracking-[-0.035em]">
+          Servicios de consultoría <span className="text-liquen">con más de 13 años de experiencia.</span>
+        </h2>
+        <Link href="/servicios/" className="enlace shrink-0">Ver el detalle de cada servicio →</Link>
       </div>
+
+      <ol>
+        {servicios.map((s, i) => (
+          <li key={s.slug} className="capitulo sticky top-0 h-svh overflow-hidden not-last:mb-[50svh]">
+            <article className="capitulo-cuadro relative isolate flex h-full origin-top flex-col justify-end will-change-transform">
+              <Foto base={s.foto} alt={s.fotoAlt} anchos={[828, 1122]} sizes="100vw" className="absolute inset-0 -z-20 h-full w-full object-cover" />
+              <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,var(--color-noche)_5%,rgb(11_21_16/0.65)_40%,rgb(11_21_16/0.15)_75%)]" />
+              <div className="mx-auto grid w-full max-w-[120rem] gap-6 px-4 pb-12 md:grid-cols-12 md:items-end md:px-8 md:pb-16">
+                <div className="md:col-span-8">
+                  <p className="dato text-liquen"><span className="text-brasa">{String(i + 1).padStart(2, "0")}</span> / {total}</p>
+                  <h3 className="mt-4 max-w-[18ch] text-[clamp(2.25rem,5.6vw,5.5rem)] font-semibold leading-[1.02] tracking-[-0.035em]">{s.titulo}</h3>
+                </div>
+                <div className="md:col-span-4">
+                  <p className="max-w-[40ch] text-lg leading-relaxed text-marfil/85">{s.descripcion}</p>
+                  <Link href={`/servicios/#${s.slug}`} className="btn-brasa mt-6">Ver servicio</Link>
+                </div>
+              </div>
+            </article>
+          </li>
+        ))}
+      </ol>
     </section>
   );
 }

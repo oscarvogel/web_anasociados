@@ -111,6 +111,7 @@ const SplitText: React.FC<SplitTextProps> = ({
         ...(mask ? { mask } : {}),
         onSplit: (self: GSAPSplitText) => {
           assignTargets(self);
+          gsap.set(el, { visibility: 'visible' });
           return gsap.fromTo(
             targets,
             { ...from },

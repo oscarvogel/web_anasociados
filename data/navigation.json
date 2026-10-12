@@ -1,6 +1,18 @@
 [
-  { "title": "Enfoque", "url": "/#enfoque" },
-  { "title": "Servicios", "url": "/#servicios" },
-  { "title": "Clientes", "url": "/#clientes" },
-  { "title": "Nosotros", "url": "/#nosotros" }
+  {
+    "title": "Enfoque",
+    "url": "/#enfoque"
+  },
+  {
+    "title": "Servicios",
+    "url": "/#servicios"
+  },
+  {
+    "title": "Nosotros",
+    "url": "/#nosotros"
+  },
+  {
+    "title": "Clientes",
+    "url": "/#clientes"
+  }
 ]

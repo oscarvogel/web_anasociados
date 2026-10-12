@@ -4,7 +4,7 @@ import { articulos, formatoFecha } from "@/lib/datos";
 
 export default function Articulos() {
   return (
-    <section id="articulos" className="bg-monte py-28 md:py-40" aria-labelledby="articulos-titulo">
+    <section id="articulos" className="bg-noche py-28 md:py-40" aria-labelledby="articulos-titulo">
       <div className="mx-auto max-w-[120rem] px-4 md:px-8">
         <h2 id="articulos-titulo" className="max-w-[20ch] text-[clamp(2.1rem,4.4vw,4.25rem)] font-semibold leading-[1.04] tracking-[-0.03em]">
           Artículos recientes <span className="text-liquen">sobre seguridad y prevención.</span>
@@ -28,7 +28,7 @@ export default function Articulos() {
             const clases = "group grid items-center gap-4 py-6 md:grid-cols-[9rem_10rem_1fr_auto] md:gap-8";
             return (
               <li key={a.url} className="border-b border-linea">
-                {a.publicado ? <Link href={a.url} className={`${clases} transition-colors hover:bg-noche/30`}>{fila}</Link> : <div className={`${clases}`}>{fila}</div>}
+                {a.publicado ? <Link href={a.url} className={`${clases} transition-colors hover:bg-monte/60`}>{fila}</Link> : <div className={`${clases}`}>{fila}</div>}
               </li>
             );
           })}

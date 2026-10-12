@@ -22,6 +22,9 @@
 }
 
 @layer base {
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-stopped { overflow: hidden; }
   html {
     background: var(--color-noche);
     color: var(--color-marfil);
@@ -37,6 +40,7 @@
   ::selection { background: var(--color-brasa); color: var(--color-noche); }
   :focus-visible { outline: 2px solid var(--color-brasa); outline-offset: 3px; border-radius: 2px; }
   [id] { scroll-margin-top: 5rem; }
+  .motion .hero-entra, .motion .hero-marca { visibility: hidden; }
 }
 
 @layer components {
@@ -72,18 +76,6 @@
 }
 
 @layer components {
-  /* Linterna: borde y halo brasa que siguen al puntero (ver components/Linterna.tsx) */
-  .linterna > * { position: relative; isolation: isolate; }
-  .linterna > *::after {
-    content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none; border-radius: inherit; padding: 1px;
-    background: radial-gradient(280px circle at var(--lx, -999px) var(--ly, -999px), var(--color-brasa), transparent 70%);
-    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
-  }
-  .linterna > *::before {
-    content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; border-radius: inherit;
-    background: radial-gradient(420px circle at var(--lx, -999px) var(--ly, -999px), rgb(232 113 74 / 0.09), transparent 65%);
-  }
-
   /* Con "reducir movimiento" la cinta de logos queda quieta: se muestran todos en filas */
   @media (prefers-reduced-motion: reduce) {
     /* !important: le gana a las utilidades de Tailwind (flex, w-max) que trae el componente */

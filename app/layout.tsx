@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
 import Header from "@/components/Header";
+import ScrollSuave from "@/components/ScrollSuave";
 import Footer from "@/components/Footer";
 import WhatsApp from "@/components/WhatsApp";
 import { contacto, sitio } from "@/lib/datos";
@@ -60,9 +61,14 @@ const organizacion = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${archivo.variable} ${general.variable} ${dmMono.variable}`}>
+    <html lang="es" className={`${archivo.variable} ${general.variable} ${dmMono.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Marca "motion" antes de pintar para ocultar lo que entra animado; si el JS no arranca en 3 s, se quita y todo queda visible */}
+        <script dangerouslySetInnerHTML={{ __html: "if(matchMedia('(prefers-reduced-motion: no-preference)').matches){document.documentElement.classList.add('motion');setTimeout(function(){if(!window.__animado)document.documentElement.classList.remove('motion')},3000)}" }} />
+      </head>
       <body className="min-h-screen">
         <a href="#contenido" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[100] focus:rounded focus:bg-marfil focus:px-4 focus:py-2 focus:text-noche">Saltar al contenido</a>
+        <ScrollSuave />
         <Header />
         <main id="contenido">{children}</main>
         <Footer />
