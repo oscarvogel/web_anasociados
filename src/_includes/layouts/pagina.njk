@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+heroPage: true
+---
+{# Página interna: banda de título sobre verde + contenido sobre marfil. Front matter: h1, bajada, etiqueta, fecha, prosa (true para texto corrido). #}
+<section class="on-dark bg-verde pb-16 pt-36 md:pb-24 md:pt-44" aria-labelledby="pagina-titulo">
+  <div class="mx-auto max-w-[120rem] px-4 md:px-8">
+    {% if etiqueta %}<p class="etiqueta hero-reveal">{{ etiqueta }}</p>{% endif %}
+    <h1 id="pagina-titulo" class="hero-reveal mt-6 max-w-[24ch] text-[clamp(2.1rem,4.6vw,4.5rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-marfil">{{ h1 or title }}</h1>
+    {% if bajada %}<p class="hero-reveal mt-8 max-w-[58ch] text-[1.0625rem] leading-relaxed text-salvia-clara">{{ bajada }}</p>{% endif %}
+    {% if fecha %}<p class="mono hero-reveal mt-6 text-marfil/60">{{ fecha | formatDate }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="fusion f-corto f-arriba-verde f-abajo-verde bg-marfil py-16 md:py-24">
+  <div class="mx-auto max-w-[120rem] px-4 md:px-8">
+    <div{% if prosa %} class="prosa"{% endif %}>
+      {{ content | safe }}
+    </div>
+  </div>
+</section>
+
+{% include "partials/footer.njk" %}

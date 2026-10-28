@@ -1,18 +1,47 @@
-<!-- Sección Hero -->
-<section id="inicio" class="relative min-h-screen flex items-center justify-center" >
-    <video autoplay muted loop class="absolute z-0 w-full h-full object-cover">
-        <source src="/assets/images/hero.mp4" type="video/mp4">
-        Tu navegador no soporta videos HTML5
-    </video>
-    <div class="absolute inset-0 bg-[#3B5D30]/60 z-10"></div> 
-    <div class="container mx-auto px-6 relative z-20 section-hidden">
-        <div class="max-w-3xl mx-auto text-center text-white">
-            <h1 class="text-4xl md:text-6xl font-bold mb-8 text-white drop-shadow-lg">
-                Tu socio estratégico en Higiene, Seguridad, Medio Ambiente y Sistemas de Gestión Integrados
-            </h1>
-            <a href="/contacto/" class="bg-[#556B2F] text-white px-8 py-4 rounded-full text-lg hover:bg-[#3B5D30] transition-transform transform hover:scale-105">
-                Contáctanos Hoy Mismo
-            </a>
+{% from "components/epp.njk" import arte %}
+{% from "components/foto.njk" import foto %}
+{% set flecha %}<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m9 6 6 6-6 6"/></svg>{% endset %}
+{% set destacado = servicios[2] %}
+<section id="inicio" class="hero on-dark" aria-labelledby="hero-titulo" data-hero>
+  <picture class="hero-photo" data-hero-photo>
+    <source type="image/avif" srcset="/assets/images/hero-828.avif 828w, /assets/images/hero-1280.avif 1280w, /assets/images/hero-1672.avif 1672w" sizes="100vw">
+    <source type="image/webp" srcset="/assets/images/hero-828.webp 828w, /assets/images/hero-1280.webp 1280w, /assets/images/hero-1672.webp 1672w" sizes="100vw">
+    <img src="/assets/images/hero-1672.webp" alt="Casco de seguridad con el logo de AN Asociados, guantes y planos sobre un tronco, con un bosque y maquinaria forestal al atardecer" width="1672" height="941" fetchpriority="high" decoding="async">
+  </picture>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="hero-light" aria-hidden="true"></div>
+  <p class="hero-wordmark" aria-hidden="true" data-hero-wordmark><span>{{ hero.marca }}</span></p>
+  <span class="marca-visor bl" aria-hidden="true"></span>
+  <span class="marca-visor br" aria-hidden="true"></span>
+
+  <div class="hero-content mx-auto flex min-h-[inherit] max-w-[120rem] flex-col justify-end px-4 pb-12 pt-[25rem] md:px-8 md:pb-14 md:pt-40">
+    <div class="grid items-end gap-10 md:grid-cols-12">
+      <div class="md:col-span-6 lg:col-span-5">
+        <p class="etiqueta hero-reveal">{{ hero.etiqueta }}</p>
+        <h1 id="hero-titulo" class="hero-reveal mt-5 text-[clamp(1.75rem,2.9vw,2.75rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-marfil">
+          <span class="text-salvia-clara">{{ hero.intro }}</span>
+          {{ hero.titulo }}<span class="text-tierra-clara">.</span>
+        </h1>
+        <p class="hero-reveal mt-5 max-w-[44ch] text-[0.9375rem] leading-relaxed text-marfil/85">{{ hero.descripcion }}</p>
+        <div class="hero-reveal mt-8 flex flex-wrap items-center gap-6">
+          <a href="{{ hero.cta.url }}" class="btn-chip"><span>{{ hero.cta.texto }}</span><span>{{ flecha | safe }}</span></a>
+          <a href="{{ hero.secundario.url }}" class="link-under text-marfil">{{ hero.secundario.texto }} ↓</a>
         </div>
+      </div>
+
+      <div class="hidden flex-col items-end gap-5 pb-10 md:col-span-4 md:col-start-9 md:flex lg:col-span-3 lg:col-start-10">
+        <a href="/servicios/#{{ destacado.slug }}" class="glass hero-reveal flex w-full items-center gap-4 rounded-xl p-2.5 pr-5">
+          {% if destacado.foto %}<span class="block h-28 w-24 shrink-0 overflow-hidden rounded-lg">{{ foto(destacado.foto, "", [560], "96px", "h-full w-full object-cover") }}</span>{% else %}{{ arte(destacado.arte, "h-28 w-24 shrink-0 rounded-lg", 84) }}{% endif %}
+          <span class="block text-verde">
+            <span class="mono block opacity-60">Servicio destacado</span>
+            <span class="mt-1 block font-display text-lg font-semibold leading-tight tracking-tight">{{ destacado.titulo }}</span>
+            <span class="mt-2 block text-[0.8125rem] leading-snug opacity-70">{{ destacado.descripcion }}</span>
+            <span class="mt-2 inline-flex items-center gap-1 text-[0.8125rem] font-medium">Ver servicio {{ flecha | safe }}</span>
+          </span>
+        </a>
+      </div>
     </div>
+  </div>
+
+  <p class="mono pointer-events-none absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-marfil/70 md:flex" aria-hidden="true">Scroll<span class="block h-8 w-px bg-marfil/50"></span></p>
 </section>

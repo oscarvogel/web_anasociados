@@ -1,0 +1,29 @@
+[
+  {
+    "title": "El Futuro de la Lucha contra Incendios",
+    "excerpt": "Tecnología, salud y desafíos legales en la protección de brigadistas.",
+    "url": "/blog/el-futuro-de-la-lucha-contra-incendios/",
+    "date": "2026-02-06",
+    "publicado": true,
+    "foto": "/assets/images/articulo-incendios",
+    "fotoAlt": "Dos brigadistas observan una topadora abriendo un cortafuego entre los pinos"
+  },
+  {
+    "title": "Mejores prácticas en PRL 2026",
+    "excerpt": "Nuevas tendencias en prevención de riesgos laborales y análisis con IA.",
+    "url": "/blog/mejores-practicas-prl-2026/",
+    "date": "2026-01-20",
+    "publicado": false,
+    "foto": "/assets/images/articulo-prl-2026",
+    "fotoAlt": "Una profesional con tablet y un operario con casco naranja analizan riesgos en una operación forestal"
+  },
+  {
+    "title": "SenForFire: sensores de bajo coste",
+    "excerpt": "Monitorización ambiental para detección temprana de incendios forestales.",
+    "url": "/blog/senforfire-sensores/",
+    "date": "2025-12-10",
+    "publicado": false,
+    "foto": "/assets/images/articulo-senforfire",
+    "fotoAlt": "Técnico con una tablet que muestra un mapa de incendio, junto a un dron y sensores meteorológicos"
+  }
+]

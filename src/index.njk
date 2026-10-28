@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 title: Inicio
+heroPage: true
 ---
 
 {# Hero Section #}
@@ -8,12 +9,16 @@ title: Inicio
 
 {# {% include "partials/popup.njk" %} #}
 
+{% include "partials/enfoque.njk" %}
+
 {% include "partials/servicios.njk" %}
 
-{% include "partials/eleginos.njk" %}
-
-{% include "partials/recent-articles.njk" %}
-
 {% include "partials/clientes.njk" %}
+
+{% include "partials/nosotros.njk" %}
+
+{% include "partials/articulos.njk" %}
+
+{% include "partials/contacto.njk" %}
 
 {%include "partials/footer.njk" %}

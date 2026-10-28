@@ -1,0 +1,22 @@
+{
+  "etiqueta": "Desde 2013 · Argentina y Paraguay",
+  "antes": "Seguridad",
+  "despues": "y ambiente para el trabajo forestal e industrial",
+  "descripcion": "Más de una década brindando soluciones personalizadas y cumpliendo normativas internacionales en Argentina y Paraguay.",
+  "cta": {
+    "texto": "Pedir una consulta",
+    "url": "/contacto/"
+  },
+  "secundario": {
+    "texto": "Nuestros servicios",
+    "url": "#servicios"
+  },
+  "portal": {
+    "texto": "Portal",
+    "url": "https://portal.anasociados.com.ar"
+  },
+  "contacto": {
+    "texto": "Contacto",
+    "url": "/contacto/"
+  }
+}

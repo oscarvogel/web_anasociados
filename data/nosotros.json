@@ -1,0 +1,27 @@
+{
+  "etiqueta": "[01] · Nosotros",
+  "cifras": [
+    {
+      "valor": 13,
+      "sufijo": "",
+      "descripcion": "años de experiencia comprobada"
+    },
+    {
+      "valor": 15,
+      "sufijo": "+",
+      "descripcion": "clientes satisfechos"
+    },
+    {
+      "valor": 2,
+      "sufijo": "",
+      "descripcion": "países: Argentina y Paraguay"
+    },
+    {
+      "valor": 5,
+      "sufijo": "",
+      "descripcion": "líneas de servicio"
+    }
+  ],
+  "presentacion": "Somos una consultora de Puerto Esperanza, Misiones, que acompaña a empresas forestales e industriales de Argentina y Paraguay en higiene, seguridad, ambiente y certificaciones.",
+  "cierre": "Desde un plan de prevención de incendios hasta una auditoría de certificación, armamos cada trabajo a la medida de tu operación."
+}

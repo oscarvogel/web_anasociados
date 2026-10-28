@@ -1,0 +1,47 @@
+<form class="panel-form" data-contacto data-destino="{{ contacto.correoDestino }}" novalidate>
+  <fieldset class="campo">
+    <legend class="mono campo-rotulo">¿Qué necesitas?</legend>
+    <div class="chips">
+      {% for n in contacto.necesidades %}
+      <label class="chip"><input type="radio" name="necesidad" value="{{ n }}"{% if loop.first %} checked{% endif %}><span>{{ n }}</span></label>
+      {% endfor %}
+    </div>
+  </fieldset>
+
+  <fieldset class="campo">
+    <legend class="mono campo-rotulo">¿De qué rubro es tu empresa?</legend>
+    <div class="chips">
+      {% for r in contacto.rubros %}
+      <label class="chip"><input type="radio" name="rubro" value="{{ r }}"{% if loop.first %} checked{% endif %}><span>{{ r }}</span></label>
+      {% endfor %}
+    </div>
+  </fieldset>
+
+  <div class="grid gap-x-8 gap-y-6 md:grid-cols-2">
+    <div class="campo">
+      <label for="f-nombre" class="mono campo-rotulo">Nombre</label>
+      <input id="f-nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required aria-describedby="e-nombre">
+      <p id="e-nombre" class="campo-error" role="alert"></p>
+    </div>
+    <div class="campo">
+      <label for="f-email" class="mono campo-rotulo">Correo electrónico</label>
+      <input id="f-email" name="email" type="email" autocomplete="email" placeholder="tu@empresa.com" required aria-describedby="e-email">
+      <p id="e-email" class="campo-error" role="alert"></p>
+    </div>
+    <div class="campo md:col-span-2">
+      <label for="f-telefono" class="mono campo-rotulo">Teléfono <span class="text-salvia">(opcional)</span></label>
+      <input id="f-telefono" name="telefono" type="tel" autocomplete="tel" placeholder="+54 9 …">
+    </div>
+    <div class="campo md:col-span-2">
+      <label for="f-mensaje" class="mono campo-rotulo">Cuéntanos sobre tu operación</label>
+      <textarea id="f-mensaje" name="mensaje" rows="3" maxlength="1200" placeholder="Qué hacen, dónde y qué necesitas resolver" required aria-describedby="e-mensaje"></textarea>
+      <p id="e-mensaje" class="campo-error" role="alert"></p>
+    </div>
+  </div>
+
+  <div class="mt-8 flex flex-wrap items-center gap-5">
+    <button type="submit" class="btn-chip"><span>Enviar consulta</span><span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m9 6 6 6-6 6"/></svg></span></button>
+    <a href="{{ contacto.whatsapp }}" target="_blank" rel="noopener" class="link-under text-verde">O escríbenos por WhatsApp</a>
+  </div>
+  <p class="campo-estado" data-estado role="status"></p>
+</form>

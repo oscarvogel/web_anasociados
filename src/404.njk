@@ -1,0 +1,18 @@
+---
+title: Página no encontrada
+layout: layouts/base.njk
+permalink: /404.html
+heroPage: true
+---
+{% set flecha %}<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m9 6 6 6-6 6"/></svg>{% endset %}
+<section class="on-dark bg-tierra py-32 md:py-44" aria-labelledby="e404">
+  <div class="mx-auto max-w-[120rem] px-4 md:px-8">
+    <p class="etiqueta etiqueta-claro">Error 404</p>
+    <h1 id="e404" class="mt-6 max-w-[16ch] text-[clamp(2.4rem,6vw,6rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-marfil">Esta página no existe<span class="text-marfil/65"> o cambió de lugar.</span></h1>
+    <p class="mt-8 max-w-[48ch] text-[1.0625rem] leading-relaxed text-marfil">Puedes volver al inicio o contarnos qué buscabas.</p>
+    <div class="mt-10 flex flex-wrap items-center gap-6">
+      <a href="/" class="btn-chip"><span>Volver al inicio</span><span>{{ flecha | safe }}</span></a>
+      <a href="/contacto/" class="link-under text-marfil">Ir a contacto</a>
+    </div>
+  </div>
+</section>

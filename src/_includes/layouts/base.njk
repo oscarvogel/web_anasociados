@@ -12,50 +12,50 @@
     gtag('config', 'G-5P6G7KP4XY');
     </script>
 
+    <script>
+        if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+            document.documentElement.classList.add('motion');
+            setTimeout(function () { if (!window.gsap || !window.ScrollTrigger || !window.SplitText) document.documentElement.classList.remove('motion'); }, 2500);
+        }
+    </script>
     <meta charset="UTF-8">
-    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/images/logo_almada_neri.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ description | default('AN Asociados - Consultoría Almada Neri & Asociados, expertos en consultoría empresarial y soluciones estratégicas.') }}">
-    <meta name="keywords" content="{{ keywords | default('consultoría, empresarial, soluciones estratégicas, Almada Neri, AN Asociados') }}">
+    <meta name="description" content="{{ description | default('Consultoría en Higiene, Seguridad y Medio Ambiente, sistemas de gestión integrados y gestión forestal sostenible en Argentina y Paraguay.') }}">
+    <meta name="keywords" content="{{ keywords | default('higiene y seguridad, medio ambiente, gestión forestal sostenible, sistemas de gestión integrados, Almada Neri, AN Asociados') }}">
     <meta name="author" content="{{ author | default('AN Asociados') }}">
     <meta property="og:title" content="{{ title }} | AN Asociados - Consultoría Almada Neri & Asociados">
-    <meta property="og:description" content="{{ description | default('AN Asociados - Consultoría Almada Neri & Asociados, expertos en consultoría empresarial y soluciones estratégicas.') }}">
+    <meta property="og:description" content="{{ description | default('Consultoría en Higiene, Seguridad y Medio Ambiente, sistemas de gestión integrados y gestión forestal sostenible en Argentina y Paraguay.') }}">
     <meta property="og:type" content="{{ og_type | default('website') }}">
-    <meta property="og:url" content="{{ page.url }}">
-    <meta property="og:image" content="{{ image | default('/assets/images/logo_almada_neri.jpg') }}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:image" content="{{ site.url }}{{ image | default(site.ogImagen) }}">
     {% if date %}
     <meta property="article:published_time" content="{{ date }}">
     {% endif %}
     {% if author %}
     <meta property="article:author" content="{{ author }}">
     {% endif %}
-    <link rel="canonical" href="{{ canonical | default(page.url) }}">
+    <link rel="canonical" href="{{ site.url }}{{ canonical | default(page.url) }}">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="{{ twitter_card | default('summary_large_image') }}">
     <meta name="twitter:title" content="{{ title }} | AN Asociados - Consultoría Almada Neri & Asociados">
-    <meta name="twitter:description" content="{{ description | default('AN Asociados - Consultoría Almada Neri & Asociados, expertos en consultoría empresarial y soluciones estratégicas.') }}">
-    <meta name="twitter:image" content="{{ image | default('/assets/images/logo_almada_neri.jpg') }}">
+    <meta name="twitter:description" content="{{ description | default('Consultoría en Higiene, Seguridad y Medio Ambiente, sistemas de gestión integrados y gestión forestal sostenible en Argentina y Paraguay.') }}">
+    <meta name="twitter:image" content="{{ site.url }}{{ image | default(site.ogImagen) }}">
 
     <title>{{ title }} | AN Asociados - Consultoría Almada Neri & Asociados</title>
-    <script src="https://cdn.tailwindcss.com" async></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    
-    <!-- Preconnect para recursos externos -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <meta name="theme-color" content="#eae8dc">
+    <link rel="preload" href="/assets/fonts/Syne-variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/GeneralSans-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/css/app.css">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "AN Asociados",
         "url": "https://www.anasociados.com.ar",
-        "logo": "https://www.anasociados.com.ar/assets/images/logo_almada_neri.jpg",
-        "description": "AN Asociados - Consultoría Almada Neri & Asociados, expertos en consultoría empresarial y soluciones estratégicas.",
+        "logo": "https://www.anasociados.com.ar/assets/images/logo_almada_neri.png",
+        "description": "Consultoría en Higiene, Seguridad y Medio Ambiente, sistemas de gestión integrados y gestión forestal sostenible en Argentina y Paraguay.",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "B° Industrial, calle Río Paraná S/N°",
@@ -77,21 +77,21 @@
     }
     </script>
 </head>
-<body class="min-h-screen bg-gray-50">
+<body class="min-h-screen{% if heroPage %} has-hero{% endif %}">
+    <a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-marfil focus:text-grafito focus:px-4 focus:py-2">Saltar al contenido</a>
     {% include "partials/header.njk" %}
     
-    <main role="main">
+    <main id="contenido" role="main">
         {{ content | safe }}
     </main>
 
     {%include "partials/whatsapp-button.njk" %}
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        AOS.init();
-    </script>
+    <script src="/assets/js/header.js" defer></script>
+    <script src="/assets/js/vendor/gsap.min.js" defer></script>
+    <script src="/assets/js/vendor/ScrollTrigger.min.js" defer></script>
+    <script src="/assets/js/vendor/SplitText.min.js" defer></script>
+    <script src="/assets/js/motion.js" defer></script>
+    <script src="/assets/js/contacto.js" defer></script>
 
 </body>
 </html>

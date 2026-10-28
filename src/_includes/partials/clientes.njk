@@ -1,65 +1,30 @@
-<section class="py-16 bg-[#F2F6EC]" data-aos="fade-up" id="clientes">
-    <div class="container mx-auto px-6">
-        <div class="mb-8 text-center">
-            <h2 class="text-4xl font-bold text-[#2C4A1D] mb-4">Nuestros Clientes</h2>
-            <p class="pt-6 pb-8 text-base max-w-2xl text-center mx-auto">
-                {{ clientes.descripcion }}
-            </p>
-        </div>
-
-        <!-- Slider ajustado con menos espacio -->
-        <div class="swiper-container relative">
-            <div class="swiper-wrapper py-8">
-                {% for cliente in clientes.clientes %}
-                <div class="swiper-slide flex items-center justify-center">
-                    <a href="{{ cliente.enlace }}" target="_blank" class="group block" rel="noopener noreferrer">
-                        <img 
-                            src="{{ cliente.logo }}" 
-                            alt="{{ cliente.alt }}"
-                            class="max-h-20 w-auto mx-auto filter grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100">
-                    </a>
-                </div>
-                {% endfor %}
-            </div>
-
-            <!-- Navigation buttons -->
-            <div class="swiper-button-next text-[#2C4A1D]"></div>
-            <div class="swiper-button-prev text-[#2C4A1D]"></div>
-            
-            <!-- Pagination -->
-            <div class="swiper-pagination"></div>
-        </div>
+<section id="clientes" class="fusion f-arriba-verde f-abajo-verde bg-marfil-2 py-24 md:py-36" aria-labelledby="clientes-titulo">
+  <div class="mx-auto max-w-[120rem] px-4 md:px-8">
+    <p class="etiqueta">( 03 ) Clientes</p>
+    <div class="mt-8 grid gap-8 md:grid-cols-12 md:items-end">
+      <h2 id="clientes-titulo" class="text-[clamp(2.1rem,4.2vw,4rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-verde md:col-span-7">
+        {{ clientes.tituloSeccion }}<br><span class="text-apagado">{{ clientes.lema }}</span>
+      </h2>
+      <p class="max-w-[46ch] text-[0.9375rem] leading-relaxed text-salvia md:col-span-4 md:col-start-9">{{ clientes.descripcion }}</p>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const swiper = new Swiper('.swiper-container', {
-                loop: true,
-                slidesPerView: 3,  // Más slides visibles
-                spaceBetween: 15,  // Espacio reducido
-                centeredSlides: false,
-                autoplay: {
-                    delay: 3000,
-                },
-                breakpoints: {
-                    640: {
-                        slidesPerView: 4,
-                        spaceBetween: 15
-                    },
-                    1024: {
-                        slidesPerView: 5,
-                        spaceBetween: 15
-                    },
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-            });
-        });
-    </script>
+    <p class="mt-10"><a href="/clientes_destacados/" class="link-under text-verde">Ver los trabajos con nuestros clientes →</a></p>
+
+    <ul class="planilla mt-10">
+      {% for c in clientes.clientes %}
+      <li class="celda" data-reveal>
+        <span class="mono celda-n" aria-hidden="true">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span>
+        <img src="{{ c.logo }}" alt="{{ c.alt }}" loading="lazy" decoding="async">
+      </li>
+      {% endfor %}
+      {# cierre de la planilla: llena lo que sobra de la última fila con 2, 3 o 6 columnas #}
+      {% set n = clientes.clientes | length %}{% set s2 = (2 - n % 2) % 2 %}{% set s3 = (3 - n % 3) % 3 %}{% set s6 = (6 - n % 6) % 6 %}
+      {% if true %}
+      <li class="celda celda-cta{% if s2 %} s2{% endif %}{% if s3 %} s3{% endif %}{% if s6 %} s6{% endif %}" style="--s2:{{ s2 }};--s3:{{ s3 }};--s6:{{ s6 }}">
+        <span class="mono text-salvia">{% if n + 1 < 10 %}0{% endif %}{{ n + 1 }} / Próxima empresa</span>
+        <a href="/contacto/" class="link-under mt-6 font-display text-[clamp(1.25rem,1.8vw,1.75rem)] font-semibold leading-tight tracking-[-0.02em] text-verde">¿Sumamos a tu empresa a la planilla? →</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
 </section>

@@ -3,3 +3,13 @@ _site/
 .DS_Store
 Thumbs.db
 npm-debug.log*
+src/assets/css/app.css
+design-source/originales/
+.claude/skills/**/node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# registros de playwright-cli
+.playwright-cli/

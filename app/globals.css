@@ -1,0 +1,118 @@
+@import "tailwindcss" source(none);
+@source "../app";
+@source "../components";
+@source "../data";
+
+@theme {
+  --color-noche: #0b1510;
+  --color-monte: #13211a;
+  --color-linea: #d4d1c2;
+  --color-marfil: #ece9dc;
+  --color-liquen: #a9b6a1;
+  --color-musgo: #6f7f69;
+  --color-brasa: #e8714a;
+  --color-senal: #f0c23b;
+  --color-tierra: #a63e24;
+  --color-papel: #f5f3ea;
+  --color-salvia: #556150;
+
+  --font-display: var(--font-archivo), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-general), system-ui, sans-serif;
+  --font-mono: var(--font-dm-mono), ui-monospace, monospace;
+
+  --ease-salida: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-stopped { overflow: hidden; }
+  html {
+    background: var(--color-marfil);
+    color: var(--color-noche);
+    color-scheme: light;
+    -webkit-font-smoothing: antialiased;
+    scrollbar-color: var(--color-musgo) var(--color-marfil);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+  body { font-family: var(--font-sans); caret-color: var(--color-brasa); }
+  h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
+  ::selection { background: var(--color-brasa); color: var(--color-noche); }
+  :focus-visible { outline: 2px solid var(--color-brasa); outline-offset: 3px; border-radius: 2px; }
+  [id] { scroll-margin-top: 5rem; }
+  .motion .hero-entra, .motion .hero-casco, .motion .hero-palabra { visibility: hidden; }
+}
+
+@layer components {
+  /* Rótulo de plano: mayúsculas anchas, como los textos de un plano técnico */
+  .rotulo {
+    font-family: var(--font-display);
+    font-stretch: 125%;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .dato { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 0.75rem; letter-spacing: 0.02em; }
+
+  .btn-brasa {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    min-height: 2.75rem; padding: 0 1.25rem; border-radius: 999px;
+    background: var(--color-brasa); color: var(--color-noche);
+    font-weight: 600; font-size: 0.9375rem;
+    transition: background-color 0.3s var(--ease-salida), transform 0.3s var(--ease-salida);
+  }
+  .btn-brasa:hover { background: var(--color-noche); color: var(--color-marfil); }
+  .btn-brasa:active { transform: scale(0.97); }
+
+  .enlace { text-decoration: underline; text-decoration-color: color-mix(in oklab, currentColor 35%, transparent); text-underline-offset: 0.3em; text-decoration-thickness: 1px; transition: text-decoration-color 0.3s, color 0.3s; }
+  .enlace:hover { text-decoration-color: var(--color-brasa); }
+
+  /* Ítem de la navegación: un círculo sube desde abajo y rellena la pastilla. --tinta/--fondo los fija la cabecera según esté sobre la foto o no */
+  .nav-item { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; height: 100%; padding: 0 1rem; border-radius: 999px; font-size: 0.875rem; font-weight: 500; color: var(--tinta); transition: color 0.35s var(--ease-salida); }
+  .nav-item::before { content: ""; position: absolute; z-index: -1; left: 50%; bottom: 0; width: 150%; aspect-ratio: 1; border-radius: 50%; background: var(--tinta); translate: -50% 110%; transition: translate 0.45s var(--ease-salida); }
+  .nav-item:hover, .nav-item:focus-visible { color: var(--fondo); }
+  .nav-item:hover::before, .nav-item:focus-visible::before { translate: -50% 35%; }
+  .nav-item[aria-current]::after { content: ""; position: absolute; left: 50%; bottom: 0.3rem; width: 4px; height: 4px; border-radius: 50%; background: var(--color-brasa); translate: -50% 0; }
+}
+
+@layer components {
+  /* Con "reducir movimiento" la cinta de logos queda quieta: se muestran todos en filas */
+  @media (prefers-reduced-motion: reduce) {
+    /* !important: le gana a las utilidades de Tailwind (flex, w-max) que trae el componente */
+    .clientes-loop [aria-hidden="true"] { display: none !important; }
+    .clientes-loop > div > div { width: 100% !important; justify-content: center; }
+    .clientes-loop ul { flex-wrap: wrap; justify-content: center; row-gap: 1rem; padding-inline: 1rem; }
+  }
+
+  .campo-control {
+    width: 100%; border-radius: 0.75rem; border: 1px solid rgb(236 233 220 / 0.45); background: rgb(11 21 16 / 0.22);
+    padding: 0.8rem 1rem; color: var(--color-marfil); transition: border-color 0.25s, background-color 0.25s;
+  }
+  .campo-control::placeholder { color: rgb(236 233 220 / 0.82); }
+  .campo-control:focus-visible { outline: 2px solid var(--color-marfil); outline-offset: 2px; background: rgb(11 21 16 / 0.35); }
+  .campo-control[aria-invalid] { border-color: var(--color-senal); }
+  .chip { display: inline-flex; cursor: pointer; }
+  .chip input { position: absolute; opacity: 0; pointer-events: none; }
+  .chip span { display: inline-flex; align-items: center; min-height: 2.5rem; padding: 0 1rem; border-radius: 999px; border: 1px solid rgb(236 233 220 / 0.45); font-size: 0.875rem; transition: background-color 0.25s, color 0.25s, border-color 0.25s; }
+  .chip:hover span { border-color: var(--color-marfil); }
+  .chip input:checked + span { background: var(--color-marfil); color: var(--color-noche); border-color: var(--color-marfil); }
+  .chip input:focus-visible + span { outline: 2px solid var(--color-marfil); outline-offset: 3px; }
+}
+
+@layer components {
+  /* Texto corrido (artículos y políticas) */
+  .prosa { max-width: 46rem; color: rgb(11 21 16 / 0.85); font-size: 1.0625rem; line-height: 1.75; }
+  .prosa > * + * { margin-top: 1.25rem; }
+  .prosa h2 { margin-top: 3.5rem; font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; color: var(--color-noche); }
+  .prosa h3 { margin-top: 2.5rem; font-size: 1.25rem; font-weight: 600; color: var(--color-noche); }
+  .prosa ul, .prosa ol { padding-left: 1.4rem; }
+  .prosa ul { list-style: disc; }
+  .prosa ol { list-style: decimal; }
+  .prosa li + li { margin-top: 0.5rem; }
+  .prosa li::marker { color: var(--color-brasa); }
+  .prosa strong { color: var(--color-noche); font-weight: 600; }
+  .prosa a { color: var(--color-tierra); text-decoration: underline; text-underline-offset: 0.2em; }
+  .prosa img { width: 100%; height: auto; border-radius: 0.75rem; }
+}

@@ -2,33 +2,42 @@
 title: Servicios de Consultoría
 layout: layouts/base.njk
 tags: servicios
+heroPage: true
 ---
+{% from "components/foto.njk" import foto %}
+{% from "components/epp.njk" import arte %}
 
-<section class="py-16 bg-[#F2F6EC]" data-aos="fade-up">
-    <h1 class="text-3xl font-bold text-center my-6">Servicios de Consultoría</h1>
-    <p class="text-center text-gray-600 mb-8">Asesoría en higiene, seguridad y medio ambiente para alcanzar la excelencia operativa en su empresa.</p>
-
-    <div class="container mx-auto px-4 md:px-20 lg:px-40 xl:px-60">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center">
-        {% for servicio in servicios %}
-            <div class="max-w-lg rounded-lg overflow-hidden p-4 text-center" data-aos="fade-up">
-                <div class="shadow-lg rounded overflow-hidden">
-                    <img class="w-full h-96 object-cover rounded-md" src="{{ servicio.imagen }}" alt="{{ servicio.titulo }}">
-                    <div class="bg-white p-4 md:p-8 lg:p-12">
-                        <h2 class="text-xl font-semibold mt-4">{{ servicio.titulo }}</h2>
-                        <p class="font-light text-xl italic font-gray-800">
-                            {{ servicio.descripcion }}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-        </div>
-    </div>
+<section class="on-dark bg-verde pb-20 pt-36 md:pb-28 md:pt-44" aria-labelledby="servicios-h1">
+  <div class="mx-auto max-w-[90rem] px-6 md:px-12">
+    <h1 id="servicios-h1" class="hero-reveal max-w-[18ch] text-[clamp(2.5rem,5.4vw,5.5rem)] font-bold leading-[1.02] tracking-[-0.03em] text-marfil">Servicios de consultoría</h1>
+    <p class="hero-reveal mt-8 max-w-[52ch] text-lg text-salvia-clara">Asesoría en higiene, seguridad y medio ambiente para lograr una operación más segura en tu empresa.</p>
+  </div>
 </section>
 
+<section class="fusion f-corto f-arriba-verde bg-marfil" aria-label="Detalle de servicios">
+  {% for servicio in servicios %}
+  <article id="{{ servicio.slug }}" class="scroll-mt-20 border-b border-grafito/15 py-16 md:py-24">
+    <div class="mx-auto grid max-w-[90rem] items-center gap-10 px-6 md:px-12 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-5 {% if loop.index0 % 2 %}lg:order-last{% endif %}" data-reveal>
+        <h2 class="text-[clamp(1.75rem,3vw,2.75rem)] font-bold leading-[1.08] tracking-[-0.025em] text-verde">{{ servicio.titulo }}</h2>
+        <p class="mt-5 max-w-[46ch] text-lg text-salvia">{{ servicio.descripcion }}</p>
+        <a href="/contacto/?necesidad={{ servicio.necesidad | urlencode }}" class="btn btn-ghost mt-8 text-verde">Consultar este servicio</a>
+      </div>
+      <div class="lg:col-span-7" data-reveal>
+        {% if servicio.foto %}<div class="aspect-[4/3] w-full overflow-hidden rounded">{{ foto(servicio.foto, servicio.fotoAlt, [560, 828, 1122], "(min-width: 1024px) 55vw, 100vw", "h-full w-full object-cover object-[50%_35%]") }}</div>{% else %}{{ arte(servicio.arte, "aspect-[4/3] w-full rounded", 240) }}{% endif %}
+      </div>
+    </div>
+  </article>
+  {% endfor %}
+</section>
+
+<section class="fusion f-corto f-arriba-marfil bg-tierra py-20 text-marfil md:py-28" aria-labelledby="servicios-cta">
+  <div class="mx-auto flex max-w-[90rem] flex-col gap-8 px-6 md:flex-row md:items-end md:justify-between md:px-12">
+    <h2 id="servicios-cta" class="max-w-[20ch] text-[clamp(2rem,4vw,3.5rem)] font-bold leading-[1.05] tracking-[-0.03em]">Hablemos de la seguridad de tu operación</h2>
+    <a href="/contacto/" class="btn bg-marfil text-verde hover:bg-verde hover:text-marfil">Contáctanos</a>
+  </div>
+</section>
 
 {%include "partials/alianzas.njk" %}
 
 {%include "partials/footer.njk" %}
-

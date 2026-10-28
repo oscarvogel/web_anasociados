@@ -1,0 +1,27 @@
+{% from "components/foto.njk" import foto %}
+<section id="articulos" class="fusion f-arriba-verde f-abajo-tierra bg-marfil py-24 md:py-36" aria-labelledby="articulos-titulo">
+  <div class="mx-auto max-w-[120rem] px-4 md:px-8">
+    <p class="etiqueta">( 05 ) Artículos</p>
+    <h2 id="articulos-titulo" class="mt-8 text-[clamp(2.1rem,4.2vw,4rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-verde">
+      Artículos recientes<br><span class="text-apagado">sobre seguridad y prevención.</span>
+    </h2>
+
+    <ul class="mt-14 md:mt-20">
+      {% for post in recent_articles %}
+      <li data-reveal>
+        {% if post.publicado %}
+        <a href="{{ post.url }}" class="fila fila-enlace">
+        {% else %}
+        <div class="fila fila-pendiente">
+        {% endif %}
+          <span class="fila-foto">{{ foto(post.foto, "", [600, 1000], "(min-width: 1024px) 9rem, 60vw", "h-full w-full object-cover") }}</span>
+          <span class="mono fila-fecha">{{ post.date | formatDate }}</span>
+          <span class="fila-titulo">{{ post.title }}</span>
+          <span class="fila-extracto">{{ post.excerpt }}</span>
+          <span class="mono fila-estado">{% if post.publicado %}Leer →{% else %}Próximamente{% endif %}</span>
+        {% if post.publicado %}</a>{% else %}</div>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

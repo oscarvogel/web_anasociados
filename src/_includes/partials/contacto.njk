@@ -1,0 +1,23 @@
+{% set flecha %}<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m9 6 6 6-6 6"/></svg>{% endset %}
+<section id="contacto" class="fusion f-abajo-verde on-dark bg-tierra py-24 md:py-36" aria-labelledby="contacto-titulo">
+  <div class="mx-auto grid max-w-[120rem] gap-14 px-4 md:px-8 lg:grid-cols-12">
+    <div class="lg:col-span-5">
+      <p class="etiqueta etiqueta-claro">{{ contacto.etiqueta }}</p>
+      <{{ nivelTitulo or "h2" }} id="contacto-titulo" class="mt-8 text-[clamp(2.1rem,4.4vw,4.25rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-marfil">
+        {{ contacto.titulo }}<br><span class="text-marfil/75">{{ contacto.tituloApagado }}</span>
+      </{{ nivelTitulo or "h2" }}>
+      <dl class="mt-12 grid gap-6">
+        {% for d in contacto.datos %}
+        <div>
+          <dt class="mono text-marfil">{{ d.rotulo }}</dt>
+          <dd class="mt-1.5 text-[1.0625rem] leading-snug text-marfil">{% if d.enlace %}<a href="{{ d.enlace }}" class="link-under">{{ d.texto }}</a>{% else %}{{ d.texto }}{% endif %}</dd>
+        </div>
+        {% endfor %}
+      </dl>
+    </div>
+
+    <div class="lg:col-span-7">
+      {% include "partials/contacto-form.njk" %}
+    </div>
+  </div>
+</section>

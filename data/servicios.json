@@ -1,0 +1,57 @@
+[
+  {
+    "titulo": "Higiene, Seguridad y Medio Ambiente",
+    "descripcion": "Diseño e implementación de programas personalizados para minimizar riesgos laborales",
+    "icono": "shield-check",
+    "imagen": "/assets/images/higiene-seguridad-medio-ambiente.webp",
+    "slug": "higiene-seguridad-medio-ambiente",
+    "foto": "/assets/images/servicio-higiene-seguridad-ambiente",
+    "arte": "casco",
+    "necesidad": "Higiene, seguridad y ambiente",
+    "fotoAlt": "Casco blanco con el logo AN, guantes de trabajo, chaleco reflectivo y anteojos sobre rollizos, con una máquina forestal al fondo"
+  },
+  {
+    "titulo": "Sistemas de Gestión Integrados y Gestión Forestal Sostenible",
+    "descripcion": "Auditorías y asesoramiento para la certificación en normas",
+    "icono": "layers",
+    "imagen": "/assets/images/sistemas-gestion-integrados-gestion-forestal-sostenible.webp",
+    "slug": "sistemas-gestion-gestion-forestal",
+    "foto": "/assets/images/servicio-sistemas-gestion-forestal",
+    "arte": "chaleco",
+    "necesidad": "Sistemas de gestión",
+    "fotoAlt": "Inspector con casco y chaleco reflectivo revisando un plano en una plantación forestal al atardecer"
+  },
+  {
+    "titulo": "Manejo y Prevención de Incendios",
+    "descripcion": "Diseño de planes de prevención y control de incendios",
+    "icono": "fire",
+    "imagen": "/assets/images/manejo-prevencion-incendios.webp",
+    "slug": "manejo-prevencion-incendios",
+    "foto": "/assets/images/servicio-prevencion-incendios",
+    "arte": "matafuego",
+    "necesidad": "Prevención de incendios",
+    "fotoAlt": "Brigadistas con ropa ignífuga y herramientas avanzan por un cortafuego en el bosque"
+  },
+  {
+    "titulo": "Instructor de Manejo en Autotransporte de Carga Forestal",
+    "descripcion": "Cursos teórico-prácticos para mejorar la seguridad",
+    "icono": "graduation-cap",
+    "imagen": "/assets/images/instructor-manejo-autotransporte-carga-forestal.webp",
+    "slug": "instructor-autotransporte-carga-forestal",
+    "foto": "/assets/images/servicio-capacitacion-transporte-forestal",
+    "arte": "guantes",
+    "necesidad": "Capacitación forestal",
+    "fotoAlt": "Un instructor y una aprendiz con casco y chaleco conversan junto a un camión cargado de rollizos"
+  },
+  {
+    "titulo": "Certificación de Competencias Laborales",
+    "descripcion": "Evaluación y certificación de competencias laborales",
+    "icono": "certificate",
+    "imagen": "/assets/images/certificacion-competencias-laborales.webp",
+    "slug": "certificacion-competencias-laborales",
+    "foto": "/assets/images/servicio-certificacion-competencias",
+    "arte": "anteojos",
+    "necesidad": "Certificación de competencias",
+    "fotoAlt": "Un evaluador con planilla en la mano junto a un operador de maquinaria forestal"
+  }
+]
