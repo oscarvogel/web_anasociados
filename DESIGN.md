@@ -13,7 +13,7 @@
 - Acento **tierra colorada**; **luz de cursor** (overlay CSS cálido sobre la foto, sin WebGL); **logo actual**.
 - Foto del hero (`design-source/hero_background.png`, 1672×941): colores naturales + degradado verde profundo a izquierda y abajo. Optimizada en `src/assets/images/hero-{828,1280,1672}.{avif,webp}`.
 - Resto de imágenes: recortes de la foto del hero + pack de prompts para generar un set consistente (Paso 6). Sin stock de la web.
-- Cifras "13 años" y "15+ clientes" de la web actual (sin fuente verificable, aceptadas). Equipo oculto. Sin proyectos/testimonios todavía. Permiso para mostrar todos los logos.
+- Cifras "13 años" y "20+ clientes" de la web actual (sin fuente verificable, aceptadas). Equipo oculto. Sin proyectos/testimonios todavía. Permiso para mostrar todos los logos.
 
 ## Tokens (`src/assets/css/main.css`, `@theme`)
 | Token | Valor | Uso | Contraste |

@@ -13,3 +13,8 @@ next-env.d.ts
 
 # registros de playwright-cli
 .playwright-cli/
+
+# backup FTP local y datos de subida
+backup-ftp-*/
+backup-ftp-*.zip
+FTP_SUBIDA.md
