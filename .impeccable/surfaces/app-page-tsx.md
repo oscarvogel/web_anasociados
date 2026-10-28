@@ -1,20 +1,22 @@
 ---
-version: 1
+version: 2
 slug: "app-page-tsx"
 primary_target: "app/page.tsx"
-related_targets: []
+related_targets: ["components/home/Hero.tsx", "components/home/Nosotros.tsx", "components/home/Servicios.tsx", "components/home/Clientes.tsx", "components/home/Invitacion.tsx"]
 ---
 
 # Home — AN Asociados (Next.js)
 
-Modo: Persuade. Visitante: responsable de seguridad, RRHH u operaciones de una empresa forestal o industrial de Misiones o Paraguay que evalúa a un consultor. Acción: pedir consulta (formulario con chips de necesidad, WhatsApp, teléfono). Prueba disponible: 5 servicios reales, logos de clientes con permiso, 13 años, presencia AR/PY, capacitación propia. Sin testimonios ni proyectos todavía; no inventarlos.
+Modo: Persuade. Visitante: responsable de seguridad, RRHH u operaciones de una empresa forestal o industrial de Misiones o Paraguay que evalúa a un consultor. Acción: pedir consulta (página de contacto con formulario, WhatsApp, teléfono). Prueba disponible: 5 servicios reales, logos de clientes con permiso, 13 años, presencia AR/PY. Sin testimonios ni proyectos todavía; no inventarlos.
 
-Restricciones: exportación estática, texto en el HTML sin JS, reduced-motion, AA, un solo canvas WebGL visible, fallback estático en móvil y reduced-motion. Riesgo asumido por el usuario: fondo oscuro con sol fuerte en celular; se compensa con tinta marfil 15:1.
+Restricciones: exportación estática, texto en el HTML sin JS, reduced-motion, AA, sin WebGL.
 
-## Direction contract
-THESIS: cinemático editorial: la fotografía lleva la página y el scroll es la coreografía (como fgpy-site y web_forestal, calidad de referencia del usuario). Rechaza adornos sobre la foto (las curvas de nivel se probaron y se descartaron el 2026-10-12: restaban).
-OWN-WORLD: fondo noche #0B1510 y monte #13211A; tinta marfil #ECE9DC; líquen #A9B6A1 secundario; brasa #E8714A único acento (CTA, contador, sufijos); bloque de contacto en tierra #A63E24. Archivo expandido para el wordmark, Archivo para titulares, General Sans cuerpo, DM Mono solo para datos.
-STORY: entiende en una vista que es una consultora técnica forestal e industrial, recorre los cinco servicios como capítulos, ve cifras y clientes reales, y escribe.
-FIRST VIEWPORT: foto del hero a sangre con entrada de cámara lenta, titular y bajada + CTA brasa, wordmark AN ASOCIADOS de borde a borde entrando por letras, franja con la ubicación.
-FORM: elegida por el usuario ("cinemático editorial"). Momentos: ScrollExpand con la foto aérea de parcelas y la frase del alcance; servicios en capítulos sticky a pantalla completa (01/05) que se tapan entre sí; cifras gigantes; Lenis.
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+## Direction contract (2026-10-27, reemplaza "cinemático editorial" oscuro)
+THESIS: recorrido de thedaydream.studio (referencia del usuario) llevado a una consultora forestal: una foto que abre y cierra la página, todo lo demás claro, centrado y calmo. Se replica la composición, no el código ni los textos.
+OWN-WORLD: fondo marfil #ECE9DC, paneles papel #F5F3EA, tinta noche #0B1510, secundario salvia #556150 (5.3:1 sobre marfil), línea #D4D1C2, brasa #E8714A único acento (CTA, sufijos), tierra #A63E24 solo en /contacto, 404 y cierre de /servicios. Archivo en titulares, General Sans cuerpo, DM Mono en rótulos y cifras.
+STORY: entiende en una vista que es seguridad para el trabajo forestal (casco + foto), lee quiénes son, recorre los cinco servicios, ve clientes reales y escribe.
+FIRST VIEWPORT: foto del atardecer a sangre (`inicio-*`), el casco AN sube desde abajo grande, se achica y queda dentro del titular "Seguridad [casco] y ambiente para el trabajo forestal e industrial"; después entran las palabras, la pastilla, la bajada y el CTA brasa.
+FORM: Hero → [01] Nosotros (párrafo centrado que pasa de gris a tinta con el scroll + cifras) → [02] Servicios (grilla de 2 columnas, fotos que se aclaran al entrar; el impar ocupa el ancho) → [03] Clientes (cinta de logos) → [04] tarjeta redondeada con la misma foto del hero (parallax leve) → pie claro.
+RITMO (pedido del usuario, 2026-10-27): un solo fondo marfil en toda la home, sin bandas de otro tono ni bordes entre secciones; se separan solo por espacio. La foto del hero se funde con el marfil en su borde inferior. Nada de cortes duros.
+PATRONES PEDIDOS POR EL BRIEF (no son defecto): pastilla sobre el titular y rótulos `[01] · Sección` (gramática de la referencia); pastilla translúcida sobre la foto.
+FINISH: cada paso cierra con las skills de AGENTS.md (contexto tocado + impeccable, playwright-cli 375/768/1440, ponytail-review).

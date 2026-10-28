@@ -21,7 +21,7 @@ export default function ClientesDestacados() {
               {c.trabajos.map((t) => (
                 <li key={t.titulo}>
                   <h3 className="text-[1.125rem] font-semibold leading-snug">{t.titulo}</h3>
-                  <p className="mt-2 max-w-[62ch] leading-relaxed text-liquen">{t.descripcion}</p>
+                  <p className="mt-2 max-w-[62ch] leading-relaxed text-salvia">{t.descripcion}</p>
                 </li>
               ))}
             </ul>

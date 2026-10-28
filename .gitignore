@@ -10,3 +10,6 @@ design-source/originales/
 out/
 next-env.d.ts
 *.tsbuildinfo
+
+# registros de playwright-cli
+.playwright-cli/

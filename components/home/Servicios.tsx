@@ -10,52 +10,52 @@ import { servicios } from "@/lib/datos";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-const total = String(servicios.length).padStart(2, "0");
+// Grilla de dos columnas; con cantidad impar, el último servicio ocupa todo el ancho
+const ancho = (i: number) => i === servicios.length - 1 && servicios.length % 2 === 1;
 
-// Capítulos a pantalla completa que se apilan (sticky): cada servicio tapa al anterior, que se aleja y se apaga
 export default function Servicios() {
   const raiz = useRef<HTMLElement>(null);
+
+  // Cada foto entra apagada y algo más chica, y se aclara al llegar a pantalla
   useGSAP(() => {
     gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
-      const capitulos = gsap.utils.toArray<HTMLElement>(".capitulo", raiz.current);
-      capitulos.slice(0, -1).forEach((c, i) => {
-        gsap.to(c.querySelector(".capitulo-cuadro"), {
-          scale: 0.9, filter: "brightness(0.35)", ease: "none",
-          scrollTrigger: { trigger: capitulos[i + 1], start: "top bottom", end: "top top", scrub: true },
-        });
+      gsap.set(".servicio-foto", { filter: "brightness(0.55)", scale: 0.96 });
+      ScrollTrigger.batch(".servicio-foto", {
+        start: "top 88%",
+        once: true,
+        onEnter: (lote) => gsap.to(lote, { filter: "brightness(1)", scale: 1, duration: 1.1, ease: "expo.out", stagger: 0.08 }),
       });
     });
   }, { scope: raiz });
 
   return (
-    <section ref={raiz} id="servicios" className="bg-noche" aria-labelledby="servicios-titulo">
-      <div className="mx-auto flex max-w-[120rem] flex-col gap-8 px-4 pb-16 pt-28 md:flex-row md:items-end md:justify-between md:px-8 md:pb-20 md:pt-40">
-        <h2 id="servicios-titulo" className="max-w-[18ch] text-[clamp(2.1rem,5.2vw,5rem)] font-semibold leading-[1.02] tracking-[-0.035em]">
-          Servicios de consultoría <span className="text-liquen">con más de 13 años de experiencia.</span>
-        </h2>
-        <Link href="/servicios/" className="enlace shrink-0">Ver el detalle de cada servicio →</Link>
-      </div>
+    <section ref={raiz} id="servicios" className="py-28 md:py-40" aria-labelledby="servicios-titulo">
+      <div className="mx-auto max-w-[120rem] px-4 md:px-8">
+        <div className="text-center">
+          <p className="dato text-salvia">[02] · Servicios</p>
+          <h2 id="servicios-titulo" className="mx-auto mt-6 max-w-[22ch] text-[clamp(2rem,4.4vw,4rem)] font-semibold leading-[1.04] tracking-[-0.03em]">
+            Servicios para trabajar seguro <span className="text-salvia">en el monte y en la planta.</span>
+          </h2>
+        </div>
 
-      <ol>
-        {servicios.map((s, i) => (
-          <li key={s.slug} className="capitulo sticky top-0 h-svh overflow-hidden not-last:mb-[50svh]">
-            <article className="capitulo-cuadro relative isolate flex h-full origin-top flex-col justify-end will-change-transform">
-              <Foto base={s.foto} alt={s.fotoAlt} anchos={[828, 1122]} sizes="100vw" className="absolute inset-0 -z-20 h-full w-full object-cover" />
-              <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,var(--color-noche)_5%,rgb(11_21_16/0.65)_40%,rgb(11_21_16/0.15)_75%)]" />
-              <div className="mx-auto grid w-full max-w-[120rem] gap-6 px-4 pb-12 md:grid-cols-12 md:items-end md:px-8 md:pb-16">
-                <div className="md:col-span-8">
-                  <p className="dato text-liquen"><span className="text-brasa">{String(i + 1).padStart(2, "0")}</span> / {total}</p>
-                  <h3 className="mt-4 max-w-[18ch] text-[clamp(2.25rem,5.6vw,5.5rem)] font-semibold leading-[1.02] tracking-[-0.035em]">{s.titulo}</h3>
+        <ul className="mt-16 grid gap-x-6 gap-y-14 md:mt-24 md:grid-cols-2">
+          {servicios.map((s, i) => (
+            <li key={s.slug} className={ancho(i) ? "md:col-span-2" : undefined}>
+              <Link href={`/servicios/#${s.slug}`} className="group block rounded-2xl transition-transform duration-150 active:scale-[0.99]">
+                <div className={`servicio-foto overflow-hidden rounded-2xl will-change-transform ${ancho(i) ? "aspect-[4/3] md:aspect-[21/9]" : "aspect-[4/3]"}`}>
+                  <Foto base={s.foto} alt={s.fotoAlt} anchos={[560, 828, 1122]} sizes={ancho(i) ? "100vw" : "(min-width: 768px) 50vw, 100vw"}
+                    className="h-full w-full object-cover transition-transform duration-700 ease-[var(--ease-salida)] group-hover:scale-[1.03]" />
                 </div>
-                <div className="md:col-span-4">
-                  <p className="max-w-[40ch] text-lg leading-relaxed text-marfil/85">{s.descripcion}</p>
-                  <Link href={`/servicios/#${s.slug}`} className="btn-brasa mt-6">Ver servicio</Link>
+                <div className="mt-4 flex items-baseline justify-between gap-4">
+                  <h3 className="text-lg font-medium leading-snug underline decoration-transparent underline-offset-4 transition-colors group-hover:decoration-brasa group-focus-visible:decoration-brasa">{s.titulo}</h3>
+                  <span className="dato shrink-0 text-salvia">{String(i + 1).padStart(2, "0")}</span>
                 </div>
-              </div>
-            </article>
-          </li>
-        ))}
-      </ol>
+                <p className="mt-1 max-w-[52ch] text-[0.9375rem] leading-relaxed text-salvia">{s.descripcion}</p>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }

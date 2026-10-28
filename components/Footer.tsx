@@ -1,13 +1,14 @@
 import Link from "next/link";
-import { contacto, hero, navegacion } from "@/lib/datos";
+import Foto from "@/components/Foto";
+import { contacto, hero, navegacion, sitio } from "@/lib/datos";
 
 export default function Footer() {
   const enlaces = contacto.datos.filter((d) => d.enlace);
   return (
-    <footer className="border-t border-linea bg-noche pt-20 md:pt-28">
+    <footer className="pt-20 md:pt-28">
       <div className="mx-auto max-w-[120rem] px-4 md:px-8">
         <p className="max-w-[20ch] font-display text-[clamp(2rem,4.4vw,4.25rem)] font-semibold leading-[1.02] tracking-[-0.03em] [font-stretch:112%]">
-          Liderando el camino <span className="text-musgo">hacia un futuro más seguro, sostenible y resiliente.</span>
+          Trabajo seguro en el monte, <span className="text-salvia">la planta y el aserradero.</span>
         </p>
 
         <div className="mt-16 grid gap-10 md:grid-cols-12">
@@ -16,17 +17,17 @@ export default function Footer() {
               <img src="/assets/images/logo_almada_neri.png" alt="" width={40} height={40} className="h-10 w-auto" />
               <span className="rotulo text-sm">AN Asociados</span>
             </Link>
-            <p className="mt-4 max-w-[36ch] text-[0.9375rem] leading-relaxed text-liquen">Higiene, seguridad, medio ambiente y gestión forestal sostenible en Argentina y Paraguay.</p>
+            <p className="mt-4 max-w-[36ch] text-[0.9375rem] leading-relaxed text-salvia">Higiene, seguridad, medio ambiente y gestión forestal sostenible en Argentina y Paraguay.</p>
           </div>
           <nav className="md:col-span-3" aria-label="Secciones">
-            <h2 className="dato text-liquen">Secciones</h2>
+            <h2 className="dato text-salvia">Secciones</h2>
             <ul className="mt-4 grid gap-2">
               {navegacion.map((n) => <li key={n.url}><Link href={n.url} className="enlace">{n.title}</Link></li>)}
               <li><Link href="/servicios/" className="enlace">Detalle de servicios</Link></li>
             </ul>
           </nav>
           <div className="md:col-span-4">
-            <h2 className="dato text-liquen">Contacto</h2>
+            <h2 className="dato text-salvia">Contacto</h2>
             <ul className="mt-4 grid gap-2">
               {enlaces.map((d) => <li key={d.texto}><a href={d.enlace} className="enlace">{d.texto}</a></li>)}
               <li><a href={contacto.whatsapp} target="_blank" rel="noopener" className="enlace">WhatsApp</a></li>
@@ -36,12 +37,19 @@ export default function Footer() {
         </div>
 
         {/* Cajetín: el rótulo que cierra todo plano técnico */}
-        <div className="dato mt-16 grid border border-linea text-liquen sm:grid-cols-[1fr_auto_auto] [&>*]:px-4 [&>*]:py-3 [&>*+*]:border-linea [&>*+*]:max-sm:border-t sm:[&>*+*]:border-l">
+        <div className="dato mt-16 grid border border-linea text-salvia sm:grid-cols-[1fr_auto_auto] [&>*]:px-4 [&>*]:py-3 [&>*+*]:border-linea [&>*+*]:max-sm:border-t sm:[&>*+*]:border-l">
           <p>© 2026 AN Asociados · Puerto Esperanza, Misiones · AR / PY</p>
           <Link href="/politicas/" className="enlace">Política de privacidad</Link>
           <a href="#contenido" className="enlace">Volver arriba ↑</a>
         </div>
-        <div className="h-24" />
+        {/* Firma de quien hizo el sitio: discreta, toma color solo al pasar el mouse */}
+        <a href={sitio.autor.url} target="_blank" rel="noopener noreferrer" aria-label={`Sitio hecho por ${sitio.autor.usuario} (GitHub)`}
+          className="group dato ml-auto mt-6 flex w-fit items-center gap-2 text-salvia transition-colors hover:text-noche focus-visible:text-noche">
+          <Foto base="/assets/images/autor" anchos={[48, 96]} sizes="24px" alt=""
+            className="h-6 w-6 rounded-full bg-papel opacity-70 grayscale transition duration-300 group-hover:opacity-100 group-hover:grayscale-0 group-focus-visible:opacity-100 group-focus-visible:grayscale-0" />
+          <span>hecho por {sitio.autor.usuario}</span>
+        </a>
+        <div className="h-20" />
       </div>
     </footer>
   );

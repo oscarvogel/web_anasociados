@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", images: sitio.ogImagen },
 };
 
-export const viewport: Viewport = { themeColor: "#0b1510" };
+export const viewport: Viewport = { themeColor: "#ece9dc" };
 
 const organizacion = {
   "@context": "https://schema.org",

@@ -1,12 +1,5 @@
 {
-  "etiqueta": "( 04 ) Nosotros",
-  "titulo": "Conócenos y descubre",
-  "tituloApagado": "nuestra experiencia.",
-  "descripcion": "Más de una década brindando soluciones personalizadas y cumpliendo normativas internacionales en Argentina y Paraguay. Nuestro equipo profesional está listo para ayudar a tu empresa a alcanzar el éxito.",
-  "boton": {
-    "texto": "Contáctanos",
-    "url": "/contacto/"
-  },
+  "etiqueta": "[01] · Nosotros",
   "cifras": [
     {
       "valor": 13,
@@ -29,5 +22,6 @@
       "descripcion": "líneas de servicio"
     }
   ],
-  "foto": "/assets/images/nosotros-banda"
+  "presentacion": "Somos una consultora de Puerto Esperanza, Misiones, que acompaña a empresas forestales e industriales de Argentina y Paraguay en higiene, seguridad, ambiente y certificaciones.",
+  "cierre": "Desde un plan de prevención de incendios hasta una auditoría de certificación, armamos cada trabajo a la medida de tu operación."
 }

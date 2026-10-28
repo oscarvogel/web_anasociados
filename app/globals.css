@@ -6,13 +6,15 @@
 @theme {
   --color-noche: #0b1510;
   --color-monte: #13211a;
-  --color-linea: #26382d;
+  --color-linea: #d4d1c2;
   --color-marfil: #ece9dc;
   --color-liquen: #a9b6a1;
   --color-musgo: #6f7f69;
   --color-brasa: #e8714a;
   --color-senal: #f0c23b;
   --color-tierra: #a63e24;
+  --color-papel: #f5f3ea;
+  --color-salvia: #556150;
 
   --font-display: var(--font-archivo), "Arial Narrow", sans-serif;
   --font-sans: var(--font-general), system-ui, sans-serif;
@@ -26,11 +28,11 @@
   .lenis.lenis-smooth { scroll-behavior: auto !important; }
   .lenis.lenis-stopped { overflow: hidden; }
   html {
-    background: var(--color-noche);
-    color: var(--color-marfil);
-    color-scheme: dark;
+    background: var(--color-marfil);
+    color: var(--color-noche);
+    color-scheme: light;
     -webkit-font-smoothing: antialiased;
-    scrollbar-color: var(--color-linea) var(--color-noche);
+    scrollbar-color: var(--color-musgo) var(--color-marfil);
   }
   @media (prefers-reduced-motion: no-preference) {
     html { scroll-behavior: smooth; }
@@ -40,7 +42,7 @@
   ::selection { background: var(--color-brasa); color: var(--color-noche); }
   :focus-visible { outline: 2px solid var(--color-brasa); outline-offset: 3px; border-radius: 2px; }
   [id] { scroll-margin-top: 5rem; }
-  .motion .hero-entra, .motion .hero-marca { visibility: hidden; }
+  .motion .hero-entra, .motion .hero-casco, .motion .hero-palabra { visibility: hidden; }
 }
 
 @layer components {
@@ -61,16 +63,16 @@
     font-weight: 600; font-size: 0.9375rem;
     transition: background-color 0.3s var(--ease-salida), transform 0.3s var(--ease-salida);
   }
-  .btn-brasa:hover { background: var(--color-marfil); }
+  .btn-brasa:hover { background: var(--color-noche); color: var(--color-marfil); }
   .btn-brasa:active { transform: scale(0.97); }
 
   .enlace { text-decoration: underline; text-decoration-color: color-mix(in oklab, currentColor 35%, transparent); text-underline-offset: 0.3em; text-decoration-thickness: 1px; transition: text-decoration-color 0.3s, color 0.3s; }
-  .enlace:hover { text-decoration-color: var(--color-brasa); color: var(--color-marfil); }
+  .enlace:hover { text-decoration-color: var(--color-brasa); }
 
-  /* Ítem de la navegación: un círculo sube desde abajo y rellena la pastilla */
-  .nav-item { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; height: 100%; padding: 0 1rem; border-radius: 999px; font-size: 0.875rem; font-weight: 500; color: var(--color-marfil); transition: color 0.35s var(--ease-salida); }
-  .nav-item::before { content: ""; position: absolute; z-index: -1; left: 50%; bottom: 0; width: 150%; aspect-ratio: 1; border-radius: 50%; background: var(--color-marfil); translate: -50% 110%; transition: translate 0.45s var(--ease-salida); }
-  .nav-item:hover, .nav-item:focus-visible { color: var(--color-noche); }
+  /* Ítem de la navegación: un círculo sube desde abajo y rellena la pastilla. --tinta/--fondo los fija la cabecera según esté sobre la foto o no */
+  .nav-item { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; height: 100%; padding: 0 1rem; border-radius: 999px; font-size: 0.875rem; font-weight: 500; color: var(--tinta); transition: color 0.35s var(--ease-salida); }
+  .nav-item::before { content: ""; position: absolute; z-index: -1; left: 50%; bottom: 0; width: 150%; aspect-ratio: 1; border-radius: 50%; background: var(--tinta); translate: -50% 110%; transition: translate 0.45s var(--ease-salida); }
+  .nav-item:hover, .nav-item:focus-visible { color: var(--fondo); }
   .nav-item:hover::before, .nav-item:focus-visible::before { translate: -50% 35%; }
   .nav-item[aria-current]::after { content: ""; position: absolute; left: 50%; bottom: 0.3rem; width: 4px; height: 4px; border-radius: 50%; background: var(--color-brasa); translate: -50% 0; }
 }
@@ -101,16 +103,16 @@
 
 @layer components {
   /* Texto corrido (artículos y políticas) */
-  .prosa { max-width: 46rem; color: rgb(236 233 220 / 0.88); font-size: 1.0625rem; line-height: 1.75; }
+  .prosa { max-width: 46rem; color: rgb(11 21 16 / 0.85); font-size: 1.0625rem; line-height: 1.75; }
   .prosa > * + * { margin-top: 1.25rem; }
-  .prosa h2 { margin-top: 3.5rem; font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; color: var(--color-marfil); }
-  .prosa h3 { margin-top: 2.5rem; font-size: 1.25rem; font-weight: 600; color: var(--color-marfil); }
+  .prosa h2 { margin-top: 3.5rem; font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; color: var(--color-noche); }
+  .prosa h3 { margin-top: 2.5rem; font-size: 1.25rem; font-weight: 600; color: var(--color-noche); }
   .prosa ul, .prosa ol { padding-left: 1.4rem; }
   .prosa ul { list-style: disc; }
   .prosa ol { list-style: decimal; }
   .prosa li + li { margin-top: 0.5rem; }
   .prosa li::marker { color: var(--color-brasa); }
-  .prosa strong { color: var(--color-marfil); font-weight: 600; }
-  .prosa a { color: var(--color-brasa); text-decoration: underline; text-underline-offset: 0.2em; }
+  .prosa strong { color: var(--color-noche); font-weight: 600; }
+  .prosa a { color: var(--color-tierra); text-decoration: underline; text-underline-offset: 0.2em; }
   .prosa img { width: 100%; height: auto; border-radius: 0.75rem; }
 }

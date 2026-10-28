@@ -1,4 +1,8 @@
 {
   "url": "https://www.anasociados.com.ar",
-  "ogImagen": "/assets/images/og-compartir.jpg"
+  "ogImagen": "/assets/images/og-compartir.jpg",
+  "autor": {
+    "usuario": "romanvsc",
+    "url": "https://github.com/romanvsc"
+  }
 }

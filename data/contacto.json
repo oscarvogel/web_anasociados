@@ -1,11 +1,22 @@
 {
-  "etiqueta": "( 06 ) Contacto",
+  "etiqueta": "[04] · Contacto",
   "titulo": "Cuéntanos tu operación",
   "tituloApagado": "y armamos el plan contigo.",
   "datos": [
-    { "rotulo": "Dirección", "texto": "B° Industrial, calle Río Paraná S/N°, Puerto Esperanza, Misiones" },
-    { "rotulo": "Teléfono", "texto": "+54 9 3757 67-7124", "enlace": "tel:+5493757677124" },
-    { "rotulo": "Correo", "texto": "almada_neri@hotmail.com", "enlace": "mailto:almada_neri@hotmail.com" }
+    {
+      "rotulo": "Dirección",
+      "texto": "B° Industrial, calle Río Paraná S/N°, Puerto Esperanza, Misiones"
+    },
+    {
+      "rotulo": "Teléfono",
+      "texto": "+54 9 3757 67-7124",
+      "enlace": "tel:+5493757677124"
+    },
+    {
+      "rotulo": "Correo",
+      "texto": "almada_neri@hotmail.com",
+      "enlace": "mailto:almada_neri@hotmail.com"
+    }
   ],
   "necesidades": [
     "Higiene, seguridad y ambiente",
@@ -15,7 +26,13 @@
     "Certificación de competencias",
     "Otro"
   ],
-  "rubros": ["Forestal", "Industrial", "Transporte", "Otro"],
+  "rubros": [
+    "Forestal",
+    "Industrial",
+    "Transporte",
+    "Otro"
+  ],
   "correoDestino": "almada_neri@hotmail.com",
-  "whatsapp": "https://wa.me/543757677124"
+  "whatsapp": "https://wa.me/543757677124",
+  "pregunta": "¿Trabajamos juntos?"
 }
